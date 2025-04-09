@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Монитор криптовалюты EQAp8pimeVjBHEQdJTD95sh-XRUDmmLIXui83oR5qMvD8Uy0</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #444;
+    }
+    .crypto-status {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #fff;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Монитор криптовалюты</h1>
+    <p>Токен: <strong>EQAp8pimeVjBHEQdJTD95sh-XRUDmmLIXui83oR5qMvD8Uy0</strong></p>
+    <div id="crypto-status" class="crypto-status">
+      <p>Загрузка данных...</p>
+    </div>
+  </div>
+
+  <script>
+    // URL API – заменить на реальный адрес, откуда берутся данные для вашей криптовалюты
+    const apiUrl = 'https://example.com/api/crypto?token=EQAp8pimeVjBHEQdJTD95sh-XRUDmmLIXui83oR5qMvD8Uy0';
+
+    // Функция для получения данных с API
+    async function fetchCryptoData() {
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error('Ошибка сети: ' + response.status);
+        }
+        const data = await response.json();
+        updateUI(data);
+      } catch (error) {
+        console.error('Ошибка при получении данных:', error);
+        document.getElementById('crypto-status').innerHTML = `<p class="error">Ошибка загрузки данных: ${error.message}</p>`;
+      }
+    }
+
+    // Функция для обновления пользовательского интерфейса полученными данными
+    function updateUI(data) {
+      // Ожидается, что API возвращает объект с полями:
+      // data.price – текущая цена в USD;
+      // data.change24h – изменение цены за последние 24 часа (в %);
+      // data.volume – объём торгов;
+      // data.marketCap – рыночная капитализация.
+      const htmlContent = `
+        <p><strong>Цена:</strong> ${data.price} USD</p>
+        <p><strong>Изменение за 24 часа:</strong> ${data.change24h}%</p>
+        <p><strong>Объём торгов:</strong> ${data.volume}</p>
+        <p><strong>Рыночная капитализация:</strong> ${data.marketCap}</p>
+      `;
+      document.getElementById('crypto-status').innerHTML = htmlContent;
+    }
+
+    // Запуск функции один раз при загрузке страницы
+    fetchCryptoData();
+    // Обновление данных каждые 30 секунд (30000 мс)
+    setInterval(fetchCryptoData, 30000);
+  </script>
+</body>
+</html>
