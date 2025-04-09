@@ -1,86 +1,84 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Монитор криптовалюты EQAp8pimeVjBHEQdJTD95sh-XRUDmmLIXui83oR5qMvD8Uy0</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      color: #444;
-    }
-    .crypto-status {
-      margin-top: 20px;
-      padding: 15px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background: #fff;
-    }
-    .error {
-      color: red;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .App {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .App-header {
+            text-align: center;
+        }
+        .token-info {
+            text-align: center;
+        }
+        .token-info img {
+            max-width: 100px;
+            max-height: 100px;
+            margin-top: 20px;
+        }
+        .token-info p {
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Монитор криптовалюты</h1>
-    <p>Токен: <strong>EQAp8pimeVjBHEQdJTD95sh-XRUDmmLIXui83oR5qMvD8Uy0</strong></p>
-    <div id="crypto-status" class="crypto-status">
-      <p>Загрузка данных...</p>
-    </div>
-  </div>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
 
-  <script>
-    // URL API – заменить на реальный адрес, откуда берутся данные для вашей криптовалюты
-    const apiUrl = 'https://example.com/api/crypto?token=EQAp8pimeVjBHEQdJTD95sh-XRUDmmLIXui83oR5qMvD8Uy0';
+        const TokenInfo = ({ tokenData }) => {
+            return (
+                <div className="token-info">
+                    <h1>{tokenData.name}</h1>
+                    <p>Symbol: {tokenData.symbol}</p>
+                    <p>Decimals: {tokenData.decimals}</p>
+                    <p>Address: {tokenData.address}</p>
+                    <img src={tokenData.image} alt={tokenData.name} />
+                    <p>{tokenData.description}</p>
+                </div>
+            );
+        };
 
-    // Функция для получения данных с API
-    async function fetchCryptoData() {
-      try {
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-          throw new Error('Ошибка сети: ' + response.status);
-        }
-        const data = await response.json();
-        updateUI(data);
-      } catch (error) {
-        console.error('Ошибка при получении данных:', error);
-        document.getElementById('crypto-status').innerHTML = `<p class="error">Ошибка загрузки данных: ${error.message}</p>`;
-      }
-    }
+        const App = () => {
+            const [tokenData, setTokenData] = useState({
+                address: "0:29f298a67958c11c441d2530fde6c87e5d15039a62c85ee8bcde8479a8cbc3f1",
+                name: "Dmitry'Friends",
+                symbol: "D'F",
+                decimals: "9",
+                image: "https://i.postimg.cc/Bv6W1Zrj/IMG-20250404-205729-751.jpg",
+                description: "Friends Deployed from sTONks"
+            });
 
-    // Функция для обновления пользовательского интерфейса полученными данными
-    function updateUI(data) {
-      // Ожидается, что API возвращает объект с полями:
-      // data.price – текущая цена в USD;
-      // data.change24h – изменение цены за последние 24 часа (в %);
-      // data.volume – объём торгов;
-      // data.marketCap – рыночная капитализация.
-      const htmlContent = `
-        <p><strong>Цена:</strong> ${data.price} USD</p>
-        <p><strong>Изменение за 24 часа:</strong> ${data.change24h}%</p>
-        <p><strong>Объём торгов:</strong> ${data.volume}</p>
-        <p><strong>Рыночная капитализация:</strong> ${data.marketCap}</p>
-      `;
-      document.getElementById('crypto-status').innerHTML = htmlContent;
-    }
+            return (
+                <div className="App">
+                    <header className="App-header">
+                        <h1>Crypto Information</h1>
+                    </header>
+                    <main>
+                        <TokenInfo tokenData={tokenData} />
+                    </main>
+                </div>
+            );
+        };
 
-    // Запуск функции один раз при загрузке страницы
-    fetchCryptoData();
-    // Обновление данных каждые 30 секунд (30000 мс)
-    setInterval(fetchCryptoData, 30000);
-  </script>
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
 </body>
 </html>
