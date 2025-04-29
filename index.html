@@ -1,289 +1,61 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#007ACC">
-  <meta name="description" content="Dmitry's Friends — токен, рожденный из дружбы и семейного тепла. Присоединяйтесь к теплой семье DF и вместе делайте мир добрее!">
-  <title>Dmitry's Friends (DF)</title>
-  <style>
-    /* Base Reset and Box Sizing */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    html, body {
-      height: 100%;
-      width: 100%;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #007bff;
-      background: url('4.jpg') center / cover fixed no-repeat;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Skip Link */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: #006aff;
-      color: #fff;
-      padding: 8px;
-      z-index: 100;
-      transition: top 0.3s;
-    }
-    .skip-link:focus {
-      top: 0;
-    }
-
-    /* Header & Nav */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #0a007d;
-      z-index: 1000;
-    }
-    nav {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-    nav a {
-      display: block;
-      padding: 1rem;
-      color: #ffd700;
-      text-decoration: none;
-    }
-    nav a:hover,
-    nav a:focus {
-      text-decoration: underline;
-    }
-
-    /* Main Layout */
-    main {
-      margin-top: 60px;
-      flex: 1;
-      display: flex;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    aside {
-      width: 200px;
-      padding: 1rem;
-      flex-shrink: 0;
-    }
-    aside img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    .container {
-      flex: 1;
-      padding: 1rem;
-      display: grid;
-      gap: 2rem;
-    }
-
-    section {
-      background: rgba(255,255,255,0.8);
-      padding: 1.5rem;
-      border-radius: 8px;
-    }
-
-    /* Headings Gradient Effect */
-    h1, h2, h3 {
-      margin-bottom: 1rem;
-      font-weight: bold;
-      background: linear-gradient(90deg, #c0a16b 0%, #ffdf7a 50%, #c0a16b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      width: auto;
-      background: #006aff;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      text-align: center;
-      transition: background 0.3s;
-    }
-    .btn:hover,
-    .btn:focus {
-      background: #004c99;
-    }
-
-    /* Tables */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-    th, td {
-      border: 1px solid #a0c4ff;
-      padding: 0.75rem;
-      text-align: left;
-    }
-    th {
-      background: #0a007d;
-      color: #fff;
-    }
-
-    /* Forms */
-    form label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-      color: #007bff;
-    }
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-family: inherit;
-    }
-
-    /* Footer */
-    footer {
-      background: #0a007d;
-      color: #ffd700;
-      text-align: center;
-      padding: 1rem;
-    }
-
-    /* Responsive Breakpoints */
-    @media (max-width: 1024px) {
-      aside {
-        display: none;
-      }
-      main {
-        display: block;
-      }
-    }
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0;
-      }
-      nav a {
-        padding: 0.75rem 0;
-      }
-      .btn {
-        width: 100%;
-      }
-    }
-    @media (max-width: 480px) {
-      section {
-        padding: 1rem;
-      }
-      h1 {
-        font-size: 1.5rem;
-      }
-      h2 {
-        font-size: 1.25rem;
-      }
-      body {
-        background-attachment: scroll;
-      }
-    }
-  </style>
-</head>
-<body>
-  <a href="#content" class="skip-link">Перейти к содержанию</a>
-  <header>
-    <nav aria-label="Основная навигация">
-      <ul>
-        <li><a href="#hero">Главная</a></li>
-        <li><a href="#about">О нас</a></li>
-        <li><a href="#tokenomics">Tokenomics</a></li>
-        <li><a href="#contract">Контракт</a></li>
-        <li><a href="#contact">Контакты</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main id="content">
-    <aside>
-      <img src="2.gif" alt="Логотип проекта">
-      <img src="images/side2.jpg" alt="Схема токена">
-    </aside>
-    <div class="container">
-      <section id="hero" aria-labelledby="hero-heading">
-        <h1 id="hero-heading">Встречайте Dmitry's Friends (DF)</h1>
-        <p>Токен, рожденный из дружбы и семейного тепла!</p>
-        <p>Присоединяйтесь к теплой семье DF и вместе сделаем мир добрее!</p>
-        <a href="#contact" class="btn">Присоединиться</a>
-      </section>
-      <section id="about" aria-labelledby="about-heading">
-        <h2 id="about-heading">О нашем токене</h2>
-        <p>Этот токен – как семейный очаг, созданный для тех, кто ценит дружбу, поддержку и душевное тепло.</p>
-        <ul>
-          <li>Надежная опора для создателей полезных проектов.</li>
-          <li>Честность, доброта и взаимопомощь.</li>
-          <li>Атмосфера доверия, где каждый как дома.</li>
-        </ul>
-      </section>
-      <section id="tokenomics" aria-labelledby="tokenomics-heading">
-        <h2 id="tokenomics-heading">Tokenomics $DF</h2>
-        <table>
-          <thead>
-            <tr><th>Тип комиссии</th><th>Процент</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Покупка</td><td>20%</td></tr>
-            <tr><td>Продажа</td><td>25%</td></tr>
-          </tbody>
-        </table>
-        <h3>Распределение комиссий</h3>
-        <ul>
-          <li>60% — держателям (пропорционально доле).</li>
-          <li>15% — сжигание токенов.</li>
-          <li>25% — развитие проекта.</li>
-        </ul>
-      </section>
-      <section id="contract" aria-labelledby="contract-heading">
-        <h2 id="contract-heading">Адрес контракта</h2>
-        <p><code>EQAp8pimeVjBHEQdJTD95sh-XRUDmmLIXui83oR5qMvD8Uy0</code></p>
-        <a href="https://tonviewer.com/EQAp8pimeVjBHEQdJTD95sh-XRUDmmLIXui83oR5qMvD8Uy0?section=transactions" class="btn" target="_blank" rel="noopener">Просмотреть в Tonviewer</a>
-      </section>
-      <section id="contact" aria-labelledby="contact-heading">
-        <h2 id="contact-heading">Присоединяйтесь к семье DF</h2>
-        <form action="#" method="POST" aria-describedby="contact-description">
-          <p id="contact-description">Заполните форму, и мы свяжемся с вами в ближайшее время.</p>
-          <label for="name">Ваше имя</label>
-          <input id="name" type="text" name="name" required>
-          <label for="email">Email</label>
-          <input id="email" type="email" name="email" required>
-          <label for="message">Сообщение</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-          <button type="submit" class="btn">Отправить</button>
-        </form>
-      </section>
-    </div>
-  </main>
-  <footer>
-    &copy; 2025 Dmitry's Friends. Все права защищены.
-  </footer>
-</body>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://bw5327.craftum.io"/>
+        <link rel="shortcut icon" href="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/images/62828/f44bc6a9bb0214239dba6cb2fa2c4db7.ico" type="image/x-icon"/>
+        <link rel="icon" href="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/images/62828/f44bc6a9bb0214239dba6cb2fa2c4db7.ico" type="image/x-icon">
+        <meta property="og:url" content="https://bw5327.craftum.io"/>
+        <meta property="twitter:url" content="https://bw5327.craftum.io">        
+        <!-- RSS Feeds -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <meta name="generator" content="Craftum CMS">
+        <meta name="website_id" content="764801"/>
+        <meta name="page_id" content="1046308"/>
+                    <link rel="stylesheet" href="/static/a-common-styles.css"/>
+                    <link rel="stylesheet" href="/static/b-themes-styles.css"/>
+                    <link rel="stylesheet" href="/static/c-animation-styles.css"/>
+                    <link rel="stylesheet" href="/static/d-simple-styles.css"/>
+                    <link rel="stylesheet" href="/static/e-complex-styles.css"/>
+                    <link rel="stylesheet" href="/static/f-blocks-styles.css"/>
+                    <link rel="stylesheet" href="/static/g-libraries-styles.css"/>
+                    <link rel="stylesheet" href="/static/18161cae-7b18-411e-83b7-9d423017d1c1.css"/>
+                    <link rel="stylesheet" href="/static/4277eb56-8da8-4577-b200-6a04bf25e97b.css"/>
+                    <link rel="stylesheet" href="/static/ab7b29a3-9e37-4de9-b542-ad626bd7b8b6.css"/>    
+                    <link rel="stylesheet" href="/static/c4250137-2fa6-4b84-ac04-712bc198f3e5.css"/>
+                    <link rel="stylesheet" href="/static/d5c782a9-3c46-43ab-b825-912a09848902.css"/>
+        <style>
+            .cli-block h1, .cli-block h2, .cli-block h3, .cli-block-title,
+            .cli-block h4, .cli-block h5, .cli-block h6 {
+                font-family: var(--sans-serif);
+            }
+            .cli-block {
+                font-family: var(--sans-serif);
+            }
+        </style>
+    </head>
+    <body class="th1">
+        <div data-blocks-wrapper>
+            <section id="n-647ac913-2550-4c48-899a-b1eed85db087" data-root-id="c4250137-2fa6-4b84-ac04-712bc198f3e5" id="n-647ac913-2550-4c48-899a-b1eed85db087" data-static="true" data-type="block-wrapper" data-overlay="true" data-resize="true" data-design-type="block-wrapper" data-bind="e30=" class="cli-block cli-header cli-block--default"><header id="n-a2ddb7ae-13a5-4e6a-bcb2-d83e3b8fb004" data-root-id="c4250137-2fa6-4b84-ac04-712bc198f3e5" data-type="grid" data-title="CDN_PUG_COMPONENTS_BLOCK" data-design-type="grid" data-design-order="1" data-block-content="true" id="n-a2ddb7ae-13a5-4e6a-bcb2-d83e3b8fb004" class="cli-block__header-content cli-block__header-content--short vertical-max-xl horizontal"><a id="n-dad6019d-0fe4-4260-910d-d537db6dbd3f" data-root-id="c4250137-2fa6-4b84-ac04-712bc198f3e5" data-content-order="2" data-draggable="true" data-design-type="logo" id="n-dad6019d-0fe4-4260-910d-d537db6dbd3f" data-type="logo" data-design-order="3" data-title="CDN_PUG_COMPONENTS_LOGO" href="/" class="cli-logo cli-header__logo"><div id="n-9c125eaf-63a5-4b08-afc6-bdcf6b086e77" data-root-id="c4250137-2fa6-4b84-ac04-712bc198f3e5" id="n-9c125eaf-63a5-4b08-afc6-bdcf6b086e77" class="cli-logo__text cli-text-center--tablet cli-text-bold" data-type="text" data-gpt-value="Dmitry's Friends (DF)" data-design-type="text">Dmitry's Friends (DF)</div></a><div id="n-47c37ee2-9160-4bc6-a73d-413a2f16cfa1" data-root-id="c4250137-2fa6-4b84-ac04-712bc198f3e5" data-type="header-menu" data-design-order="5" data-bg-dependency="true" data-public-mobile-content data-content-order="4" id="n-47c37ee2-9160-4bc6-a73d-413a2f16cfa1" class="cli-header__info" style="--bg-default: none; --bg-xl: #ffffff;" data-title="CDN_PUG_COMPONENTS_MENU" data-design-type="header-menu"><nav id="n-0885b6b1-e8f9-485b-8452-b10c49bee8e0" data-root-id="c4250137-2fa6-4b84-ac04-712bc198f3e5" class="cli-menu cli-header__menu" data-type="menu" data-design-type="menu" data-title="CDN_PUG_COMPONENTS_MENU" data-draggable="true" data-builder-submenu-option="true" id="n-0885b6b1-e8f9-485b-8452-b10c49bee8e0"></nav><div id="n-e81ba48e-081c-401a-9b68-e74460bd1c11" data-root-id="c4250137-2fa6-4b84-ac04-712bc198f3e5" id="n-e81ba48e-081c-401a-9b68-e74460bd1c11" class="cli-header__data"></div></div><button id="n-b42b8a69-5449-45c5-8204-ab753ed3259f" data-root-id="c4250137-2fa6-4b84-ac04-712bc198f3e5" id="n-b42b8a69-5449-45c5-8204-ab753ed3259f" class="cli-header-toggler" data-public-mobile-toggler><div id="n-55dee8e9-17ff-47b0-8c18-71e3da4626da" data-root-id="c4250137-2fa6-4b84-ac04-712bc198f3e5" data-multitype="true" data-design-type="icon" data-system-sizes="666,38px,38px,fill;767,38px,38px,fill;1023,38px,38px,fill;1199,38px,38px,fill;1920,0px,0px,fill" class="cli-svg cli-header-toggler__open" data-type="icon" data-widget-controls="true" id="n-55dee8e9-17ff-47b0-8c18-71e3da4626da"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="presentation" aria-labelledby="cli-mobile-menu"><g fill="currentColor"><path d="M4 8C3.44772 8 3 8.44772 3 9C3 9.55228 3.44772 10 4 10H20C20.5523 10 21 9.55228 21 9C21 8.44772 20.5523 8 20 8H4ZM4 14C3.44772 14 3 14.4477 3 15C3 15.5523 3.44772 16 4 16H20C20.5523 16 21 15.5523 21 15C21 14.4477 20.5523 14 20 14H4Z" fill-rule="evenodd" clip-rule="evenodd"></path></g></svg></div><div id="n-f6a13f43-5f7d-408a-92d4-aa1123051ce6" data-root-id="c4250137-2fa6-4b84-ac04-712bc198f3e5" data-system-sizes="666,38px,38px,fill;767,38px,38px,fill;1023,38px,38px,fill;1199,38px,38px,fill;1920,0px,0px,fill" id="n-f6a13f43-5f7d-408a-92d4-aa1123051ce6" class="cli-svg cli-header-toggler__close" data-multitype="true" data-design-type="icon" data-widget-controls="true" data-type="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="presentation" aria-labelledby="cli-close-menu"><g fill="currentColor"><path d="M6.29289 7.70711C5.90237 7.31658 5.90237 6.68342 6.29289 6.29289C6.68342 5.90237 7.31658 5.90237 7.70711 6.29289L12 10.5858L16.2929 6.29289C16.6834 5.90237 17.3166 5.90237 17.7071 6.29289C18.0976 6.68342 18.0976 7.31658 17.7071 7.70711L13.4142 12L17.7071 16.2929C18.0976 16.6834 18.0976 17.3166 17.7071 17.7071C17.3166 18.0976 16.6834 18.0976 16.2929 17.7071L12 13.4142L7.70711 17.7071C7.31658 18.0976 6.68342 18.0976 6.29289 17.7071C5.90237 17.3166 5.90237 16.6834 6.29289 16.2929L10.5858 12L6.29289 7.70711Z" fill-rule="evenodd" clip-rule="evenodd"></path></g></svg></div></button></header><div id="n-6d4f6c6e-ca38-40a5-aba5-c361eb89eb87" data-root-id="c4250137-2fa6-4b84-ac04-712bc198f3e5" style="--background-color: #ffffff;" data-fill="true" data-type="background" data-design-type="background" id="n-6d4f6c6e-ca38-40a5-aba5-c361eb89eb87" class="cli-background"></div></section><section id="n-92ab1ce9-6c72-439a-8508-e01b5044dda6" data-root-id="d5c782a9-3c46-43ab-b825-912a09848902" id="n-92ab1ce9-6c72-439a-8508-e01b5044dda6" class="cli-block cli-cover cli-block--default" data-type="block-wrapper" data-resize="true" data-design-type="block-wrapper" data-bind="e30="><div id="n-d9ff3a50-1272-4a8c-a311-3bb95c33ea03" data-root-id="d5c782a9-3c46-43ab-b825-912a09848902" data-type="grid" data-design-order="1" data-block-content="true" class="cli-block__content cli-grid cli-block__content--normal" data-title="CDN_PUG_COMPONENTS_BLOCK" data-design-type="grid" id="n-d9ff3a50-1272-4a8c-a311-3bb95c33ea03"><div id="n-9bf9a93f-e16b-4213-b7d2-3e397a8cae87" data-root-id="d5c782a9-3c46-43ab-b825-912a09848902" id="n-9bf9a93f-e16b-4213-b7d2-3e397a8cae87" class="cli-col cli-col-start__xl--1 cli-col-end__xl--6 cli-col-start__md--1 cli-col-end__md--7 cli-col-start__sm--1 cli-col-end__sm--5 cli-content-v-center cli-col-h-padding__sm cli-col-h-padding__md" data-type="grid-col" data-design-type="grid-col"><div id="n-c563fcea-8115-4f73-b967-9c891055039e" data-root-id="d5c782a9-3c46-43ab-b825-912a09848902" id="n-c563fcea-8115-4f73-b967-9c891055039e" data-type="text" data-draggable="true" data-seo="true" data-design-type="text" data-design-order="2" class="cli-block-title cli-block-title--large cli-text-center--tablet cli-text-bold" data-title="CDN_PUG_COMPONENTS_TITLE" data-gpt-value="Dmitry's Friends: Тепло и Дружба в Токене" data-content-order="1">Dmitry's Friends: Тепло и Дружба в Токене</div><div id="n-5195a72a-1c99-409b-98a2-f08d1f26bfac" data-root-id="d5c782a9-3c46-43ab-b825-912a09848902" data-design-type="text" data-title="CDN_PUG_COMPONENTS_SUBTITLE" data-draggable="true" data-gpt-value="Присоединяйтесь к $DF, чтобы найти настоящих друзей, поддержку и создать атмосферу доверия. Это не просто токен, а ваша новая семья!" data-design-order="3" data-type="text" data-content-order="2" id="n-5195a72a-1c99-409b-98a2-f08d1f26bfac" class="cli-block-subtitle cli-block-subtitle--big cli-text-center--tablet cli-text-regular">Присоединяйтесь к $DF, чтобы найти настоящих друзей, поддержку и создать атмосферу доверия. Это не просто токен, а ваша новая семья!</div><div id="n-c4a974ef-838a-4c4a-b20c-3a379bbd40a9" data-root-id="d5c782a9-3c46-43ab-b825-912a09848902" id="n-c4a974ef-838a-4c4a-b20c-3a379bbd40a9" class="cli-buttons cli-buttons--column-mobile cli-buttons--left cli-buttons--center-md cli-buttons--left-xl"><a id="n-9e42c471-171e-4fcd-90e2-47c09e81949b" data-root-id="d5c782a9-3c46-43ab-b825-912a09848902" href="#" data-type="button" data-design-type="button" data-design-order="4" class="cli-button cli-button--big cli-button--primary" id="n-9e42c471-171e-4fcd-90e2-47c09e81949b" data-title="CDN_PUG_COMPONENTS_BUTTON" data-draggable="true" data-content-order="3"><span id="n-5193f2ef-703b-417d-93b5-c077050d7a59" data-root-id="d5c782a9-3c46-43ab-b825-912a09848902" data-type="text" data-gpt-value="Присоединиться к Дмитрию" data-design-type="text" id="n-5193f2ef-703b-417d-93b5-c077050d7a59" class>Присоединиться к Дмитрию</span></a></div></div><div id="n-47b5d332-4ee8-452f-9e32-564e95bcf075" data-root-id="d5c782a9-3c46-43ab-b825-912a09848902" data-type="grid-col" data-design-type="grid-col" id="n-47b5d332-4ee8-452f-9e32-564e95bcf075" class="cli-col cli-col-start__xl--7 cli-col-end__xl--13 cli-col-start__md--1 cli-col-end__md--7 cli-col-start__sm--1 cli-col-end__sm--5 cli-content-v-center cli-col-offset__md cli-col-offset__sm"><div id="n-d1c59bc2-2e34-4b43-b0be-236cc035bc02" data-root-id="d5c782a9-3c46-43ab-b825-912a09848902" data-type="image-wrapper" data-title="CDN_PUG_COMPONENTS_IMAGE" data-content-order="4" id="n-d1c59bc2-2e34-4b43-b0be-236cc035bc02" class="cli-image-card cli-image-card--medium cli-image--contain" data-draggable="true" data-design-type="image" data-design-order="5"><img id="n-f5d1d108-9f3d-435c-84f5-e6a5aed35f71" data-root-id="d5c782a9-3c46-43ab-b825-912a09848902" id="n-f5d1d108-9f3d-435c-84f5-e6a5aed35f71" data-type="image" data-multitype="true" data-system-sizes="666,602px,280px,cover;767,703px,280px,cover;1023,688px,416px,cover;1199,1060px,416px,cover;1920,540px,540px,cover" data-widget-controls="true" sizes="(-webkit-min-device-pixel-ratio: 1.5) and (max-width: 666px) 602px,(-webkit-min-device-pixel-ratio: 1.5) and (max-width: 767px) 703px,(-webkit-min-device-pixel-ratio: 1.5) and (max-width: 1023px) 739px,(-webkit-min-device-pixel-ratio: 1.5) and (max-width: 1199px) 1060px,(-webkit-min-device-pixel-ratio: 1.5) and (min-width: 1200px) 960px, (max-width: 666px) 602px,(max-width: 767px) 703px,(max-width: 1023px) 739px,(max-width: 1199px) 1060px, 960px" alt="image alt" data-gpt-value="token" srcset="https://static.craftum.com/n25uq1aA9uw6NNHoPfj4rkuZ0SM=/1204x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/deb12b4d-8235-411e-a0c4-881f45414f13.jpg 602w,https://static.craftum.com/C6FhRRUxRVQq3qATDMQBSpsh3bA=/1406x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/deb12b4d-8235-411e-a0c4-881f45414f13.jpg 703w,https://static.craftum.com/zctxwZ4W02LuKfONYG2uIPRFwJM=/1478x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/deb12b4d-8235-411e-a0c4-881f45414f13.jpg 739w,https://static.craftum.com/1EhVK4eI8i2WP6vm55txNUXQDfw=/1920x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/deb12b4d-8235-411e-a0c4-881f45414f13.jpg 960w,https://static.craftum.com/f1x-1amyg7G8oTFbiOXelgl6Aew=/1054x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/deb12b4d-8235-411e-a0c4-881f45414f13.jpg 1054w,https://static.craftum.com/7FJlhWqWYolTGEgxJ68XeP5v358=/2120x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/deb12b4d-8235-411e-a0c4-881f45414f13.jpg 1060w,https://static.craftum.com/n25uq1aA9uw6NNHoPfj4rkuZ0SM=/1204x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/deb12b4d-8235-411e-a0c4-881f45414f13.jpg 1204w,https://static.craftum.com/C6FhRRUxRVQq3qATDMQBSpsh3bA=/1406x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/deb12b4d-8235-411e-a0c4-881f45414f13.jpg 1406w,https://static.craftum.com/zctxwZ4W02LuKfONYG2uIPRFwJM=/1478x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/deb12b4d-8235-411e-a0c4-881f45414f13.jpg 1478w,https://static.craftum.com/1EhVK4eI8i2WP6vm55txNUXQDfw=/1920x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/deb12b4d-8235-411e-a0c4-881f45414f13.jpg 1920w,https://static.craftum.com/7FJlhWqWYolTGEgxJ68XeP5v358=/2120x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/deb12b4d-8235-411e-a0c4-881f45414f13.jpg 2120w" src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/deb12b4d-8235-411e-a0c4-881f45414f13.jpg" class="cli-image"></img></div></div></div><div id="n-4081c1fa-568f-4a5e-b683-cf785786c888" data-root-id="d5c782a9-3c46-43ab-b825-912a09848902" data-fill="true" data-video="true" data-design-type="background" data-type="background" data-image="true" id="n-4081c1fa-568f-4a5e-b683-cf785786c888" class="cli-background" style="--background-color: #f7f6ff;"></div></section><section id="n-4588b35f-b5e3-4c0a-90f9-03ba5a06103f" data-root-id="ab7b29a3-9e37-4de9-b542-ad626bd7b8b6" data-resize="true" data-design-type="block-wrapper" data-bind="e30=" id="n-4588b35f-b5e3-4c0a-90f9-03ba5a06103f" class="cli-block cli-cover cli-block--default" data-type="block-wrapper"><div id="n-302c4e58-05f8-4fd4-8f1a-6cae5283f2ec" data-root-id="ab7b29a3-9e37-4de9-b542-ad626bd7b8b6" data-block-content="true" data-title="CDN_PUG_COMPONENTS_BLOCK" data-design-type="grid" id="n-302c4e58-05f8-4fd4-8f1a-6cae5283f2ec" class="cli-block__content cli-grid cli-block__content--normal" data-type="grid" data-design-order="1"><div id="n-dcd6bcc0-5654-48ae-a88c-0db3e3e0dba6" data-root-id="ab7b29a3-9e37-4de9-b542-ad626bd7b8b6" data-design-type="grid-col" id="n-dcd6bcc0-5654-48ae-a88c-0db3e3e0dba6" class="cli-col cli-col-start__xl--1 cli-col-end__xl--6 cli-col-start__md--1 cli-col-end__md--7 cli-col-start__sm--1 cli-col-end__sm--5 cli-content-v-center cli-col-h-padding__sm cli-col-h-padding__md" data-type="grid-col"><div id="n-24b98af2-eb9d-48bf-8225-56070ac449c8" data-root-id="ab7b29a3-9e37-4de9-b542-ad626bd7b8b6" data-draggable="true" data-seo="true" data-gpt-value="Dmitry's Friends: Тепло и Дружба в Крипте" data-design-type="text" data-content-order="1" class="cli-block-title cli-block-title--large cli-text-center--tablet cli-text-bold" data-title="CDN_PUG_COMPONENTS_TITLE" data-design-order="2" id="n-24b98af2-eb9d-48bf-8225-56070ac449c8" data-type="text">Dmitry's Friends: Тепло и Дружба в Крипте</div><div id="n-2dd016b9-582e-4fb8-bd9e-beb2e38b7deb" data-root-id="ab7b29a3-9e37-4de9-b542-ad626bd7b8b6" data-type="text" data-design-type="text" data-design-order="3" class="cli-block-subtitle cli-block-subtitle--big cli-text-center--tablet cli-text-regular" data-gpt-value="Добро пожаловать в мир Dmitry's Friends! Создаем дружную семью на основе токена $DF, который объединяет честность, доброту и поддержку. Присоединяйтесь и создайте свое место в нашем семейном кругу!" data-title="CDN_PUG_COMPONENTS_SUBTITLE" data-draggable="true" data-content-order="2" id="n-2dd016b9-582e-4fb8-bd9e-beb2e38b7deb">Добро пожаловать в мир Dmitry's Friends! Создаем дружную семью на основе токена $DF, который объединяет честность, доброту и поддержку. Присоединяйтесь и создайте свое место в нашем семейном кругу!</div><div id="n-b704d349-f21a-4025-8f55-96c1f2cb3bb2" data-root-id="ab7b29a3-9e37-4de9-b542-ad626bd7b8b6" class="cli-buttons cli-buttons--column-mobile cli-buttons--left cli-buttons--center-md cli-buttons--left-xl" id="n-b704d349-f21a-4025-8f55-96c1f2cb3bb2"><a id="n-31e46862-168f-490a-a991-7324b2ffc87f" data-root-id="ab7b29a3-9e37-4de9-b542-ad626bd7b8b6" id="n-31e46862-168f-490a-a991-7324b2ffc87f" class="cli-button cli-button--big cli-button--primary" data-design-type="button" data-design-order="4" data-type="button" data-draggable="true" data-title="CDN_PUG_COMPONENTS_BUTTON" data-content-order="3" href="#"><span id="n-1e8f52ec-3e45-48ee-9f92-5cb77de6d401" data-root-id="ab7b29a3-9e37-4de9-b542-ad626bd7b8b6" data-gpt-value="Присоединиться к острову дружбы" data-design-type="text" id="n-1e8f52ec-3e45-48ee-9f92-5cb77de6d401" class data-type="text">Присоединиться к острову дружбы</span></a></div></div><div id="n-a96e222d-ba01-4e08-8c74-f0ea45a66fa3" data-root-id="ab7b29a3-9e37-4de9-b542-ad626bd7b8b6" data-design-type="grid-col" id="n-a96e222d-ba01-4e08-8c74-f0ea45a66fa3" class="cli-col cli-col-start__xl--7 cli-col-end__xl--13 cli-col-start__md--1 cli-col-end__md--7 cli-col-start__sm--1 cli-col-end__sm--5 cli-content-v-center cli-col-offset__md cli-col-offset__sm" data-type="grid-col"><div id="n-a2047b7d-c243-4224-8209-8b6acf413460" data-root-id="ab7b29a3-9e37-4de9-b542-ad626bd7b8b6" data-type="image-wrapper" data-title="CDN_PUG_COMPONENTS_IMAGE" data-draggable="true" data-content-order="4" data-design-order="5" id="n-a2047b7d-c243-4224-8209-8b6acf413460" data-design-type="image" class="cli-image-card cli-image-card--medium cli-image--contain"><img id="n-4f1f6dfd-7fb3-42df-9105-b2367659583b" data-root-id="ab7b29a3-9e37-4de9-b542-ad626bd7b8b6" class="cli-image" data-type="image" data-gpt-value="token" sizes="(-webkit-min-device-pixel-ratio: 1.5) and (max-width: 666px) 602px,(-webkit-min-device-pixel-ratio: 1.5) and (max-width: 767px) 703px,(-webkit-min-device-pixel-ratio: 1.5) and (max-width: 1023px) 688px,(-webkit-min-device-pixel-ratio: 1.5) and (max-width: 1199px) 1060px,(-webkit-min-device-pixel-ratio: 1.5) and (min-width: 1200px) 809px, (max-width: 666px) 602px,(max-width: 767px) 703px,(max-width: 1023px) 688px,(max-width: 1199px) 1060px, 809px" data-system-sizes="666,602px,280px,cover;767,703px,280px,cover;1023,688px,416px,cover;1199,1060px,416px,cover;1920,540px,540px,cover" data-widget-controls="true" srcset="https://static.craftum.com/uQkcltyD650KTKIH74RE95lhqFs=/1204x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/fde579fc-84c1-4b15-ac3d-9e998bff8a13.jpg 602w,https://static.craftum.com/CXwqH2-kwx3c5QdS3WsQmU1YGzQ=/1376x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/fde579fc-84c1-4b15-ac3d-9e998bff8a13.jpg 688w,https://static.craftum.com/5RTUJv5O_iejTHrTvqiZAPouUqM=/1406x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/fde579fc-84c1-4b15-ac3d-9e998bff8a13.jpg 703w,https://static.craftum.com/JlCwHz3Llss2XZHnmZiL-HNQKL4=/1618x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/fde579fc-84c1-4b15-ac3d-9e998bff8a13.jpg 809w,https://static.craftum.com/i78Wsx8NjiTGhaOkftFcMdn58Ks=/1054x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/fde579fc-84c1-4b15-ac3d-9e998bff8a13.jpg 1054w,https://static.craftum.com/pnTvarHSv9GV1GPUHLfJ8z2ppNA=/2120x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/fde579fc-84c1-4b15-ac3d-9e998bff8a13.jpg 1060w,https://static.craftum.com/uQkcltyD650KTKIH74RE95lhqFs=/1204x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/fde579fc-84c1-4b15-ac3d-9e998bff8a13.jpg 1204w,https://static.craftum.com/CXwqH2-kwx3c5QdS3WsQmU1YGzQ=/1376x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/fde579fc-84c1-4b15-ac3d-9e998bff8a13.jpg 1376w,https://static.craftum.com/5RTUJv5O_iejTHrTvqiZAPouUqM=/1406x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/fde579fc-84c1-4b15-ac3d-9e998bff8a13.jpg 1406w,https://static.craftum.com/JlCwHz3Llss2XZHnmZiL-HNQKL4=/1618x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/fde579fc-84c1-4b15-ac3d-9e998bff8a13.jpg 1618w,https://static.craftum.com/pnTvarHSv9GV1GPUHLfJ8z2ppNA=/2120x0/filters:no_upscale()/https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/fde579fc-84c1-4b15-ac3d-9e998bff8a13.jpg 2120w" id="n-4f1f6dfd-7fb3-42df-9105-b2367659583b" alt="image alt" data-multitype="true" src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/646070/fde579fc-84c1-4b15-ac3d-9e998bff8a13.jpg"></img></div></div></div><div id="n-995019d1-5c85-4c4b-b997-0cf2c7709030" data-root-id="ab7b29a3-9e37-4de9-b542-ad626bd7b8b6" id="n-995019d1-5c85-4c4b-b997-0cf2c7709030" data-image="true" data-fill="true" class="cli-background" style="--background-color: #ffffff;" data-type="background" data-video="true" data-design-type="background"></div></section><section id="n-0776748d-92dd-4821-82ee-498c7ced9d57" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-design-type="block-wrapper" data-bind="e30=" id="n-0776748d-92dd-4821-82ee-498c7ced9d57" class="cli-block cli-advantages cli-block--default" data-type="block-wrapper" data-resize="true"><div id="n-62eeb321-1936-4193-b504-e9aaeb4e63d9" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-title="CDN_PUG_COMPONENTS_BLOCK" data-design-type="grid" data-design-order="1" class="cli-block__content cli-grid cli-block__content--normal" data-type="grid" data-block-content="true" id="n-62eeb321-1936-4193-b504-e9aaeb4e63d9"><div id="n-e1b3922b-e40c-4140-bc53-944fc0039006" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" class="cli-col cli-col-start__xl--1 cli-col-end__xl--13 cli-col-start__md--1 cli-col-end__md--7 cli-col-start__sm--1 cli-col-end__sm--5" data-type="grid-col" data-design-type="grid-col" id="n-e1b3922b-e40c-4140-bc53-944fc0039006"><div id="n-6a560641-c42c-41d6-b50a-1ad51396c352" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-type="text" data-design-order="4" id="n-6a560641-c42c-41d6-b50a-1ad51396c352" data-title="CDN_PUG_COMPONENTS_SIGN" data-draggable="true" data-design-type="text" data-content-order="3" class="cli-block-caption cli-block-caption--big cli-text-center cli-text-medium">Наши преимущества</div><div id="n-083861b0-8197-4ae6-80cf-3d559d42283c" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-title="CDN_PUG_COMPONENTS_TITLE" id="n-083861b0-8197-4ae6-80cf-3d559d42283c" data-type="text" data-design-order="2" data-content-order="1" class="cli-block-title cli-block-title--gigantic cli-text-center cli-text-bold" data-seo="true" data-gpt-value="Преимущества токена Dmitry's Friends (DF)" data-design-type="text" data-draggable="true">Преимущества токена Dmitry's Friends (DF)</div><div id="n-2867dbd5-ea37-4646-8b7a-28a3d62f4f20" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" id="n-2867dbd5-ea37-4646-8b7a-28a3d62f4f20" class="cli-block-subtitle cli-block-subtitle--big cli-text-center cli-text-medium" data-title="CDN_PUG_COMPONENTS_SUBTITLE" data-gpt-value="Откройте для себя уникальные преимущества и теплую атмосферу, которые предлагает наш токен, рожденный из дружбы и семейного тепла." data-design-type="text" data-design-order="3" data-content-order="2" data-type="text" data-draggable="true">Откройте для себя уникальные преимущества и теплую атмосферу, которые предлагает наш токен, рожденный из дружбы и семейного тепла.</div><ul id="n-968c381d-88b6-44f2-9263-4ca3cf474400" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-content-order="4" class="cli-flex-list cli-flex-list--col-xl-4 cli-flex-list--col-md-2 cli-flex-list--col-sm-1 cli-flex-list--center" data-type="list" data-design-order="5" id="n-968c381d-88b6-44f2-9263-4ca3cf474400" data-title="CDN_PUG_MODELS_ADVANTAGES" data-design-type="list"><li id="n-4e6fea00-5894-4a26-a424-583a5aa20dc3" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-design-type="list-item" id="n-4e6fea00-5894-4a26-a424-583a5aa20dc3" class="cli-advantage-item cli-flex-list__item" data-type="list-item"><div id="n-fa6dfa9c-2f20-416b-8100-928635f38f0d" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" id="n-fa6dfa9c-2f20-416b-8100-928635f38f0d" class="cli-iconed-card"><div id="n-a77abded-727d-4cac-be12-8046275a8496" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" id="n-a77abded-727d-4cac-be12-8046275a8496" class="cli-iconed-card__icon" data-type="image-wrapper" data-title="CDN_PUG_COMPONENTS_ICON" data-draggable="true" data-design-type="icon"><div id="n-15e58fb1-004b-4ae7-84cc-db5396174e3b" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-multitype="true" data-system-sizes="666,80px,80px,fill;767,80px,80px,fill;1023,80px,80px,fill;1199,80px,80px,fill;1920,80px,80px,fill" data-widget-controls="true" id="n-15e58fb1-004b-4ae7-84cc-db5396174e3b" class="cli-svg" data-type="icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M12.4946 36.9144L15.952 39L35.5438 11.4866L32.2401 9L12.4946 36.9144ZM8 17.1417C8 21.3128 11.1885 24.2406 15.3758 24.2406C19.563 24.2406 22.7131 21.3128 22.7131 17.1417C22.7131 12.9305 19.563 10.0027 15.3758 10.0027C11.1885 10.0027 8 12.9305 8 17.1417ZM12.3409 17.1417C12.3409 15.1765 13.7623 13.893 15.3758 13.893C16.9892 13.893 18.3721 15.1765 18.3721 17.1417C18.3721 19.1471 17.0276 20.4305 15.3758 20.4305C13.8007 20.4305 12.3409 19.1471 12.3409 17.1417ZM25.2869 31.2193C25.2869 35.3904 28.4754 38.3583 32.6627 38.3583C36.8115 38.3583 40 35.3904 40 31.2193C40 27.008 36.8115 24.1203 32.6627 24.1203C28.4754 24.1203 25.2869 27.008 25.2869 31.2193ZM29.6278 31.2193C29.6278 29.2139 31.0492 27.9305 32.6627 27.9305C34.2377 27.9305 35.6591 29.2139 35.6591 31.2193C35.6591 33.1845 34.2761 34.4679 32.6627 34.4679C31.0876 34.4679 29.6278 33.1845 29.6278 31.2193Z"></path></svg></div></div><div id="n-c8e953ac-f2e9-4b7a-a257-b91c1b9b6d93" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-title="CDN_PUG_COMPONENTS_TITLE" data-gpt-value="Надежная поддержка сообщества" id="n-c8e953ac-f2e9-4b7a-a257-b91c1b9b6d93" class="cli-iconed-card__title cli-text-medium cli-text-center" data-draggable="true" data-design-type="text" data-type="text">Надежная поддержка сообщества</div><div id="n-23f04650-adb5-4702-92ca-aa9bcdbfa97d" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-draggable="true" data-design-type="text" id="n-23f04650-adb5-4702-92ca-aa9bcdbfa97d" class="cli-iconed-card__description cli-text-center" data-type="text" data-gpt-value="Каждый участник семьи Dmitry's Friends получает надежное плечо для создания чего-то ценного для других." data-title="CDN_PUG_COMPONENTS_SUBTITLE">Каждый участник семьи Dmitry's Friends получает надежное плечо для создания чего-то ценного для других.</div></div></li><li id="n-c3488d32-b842-45cc-aa2f-01b9e07d5f65" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-type="list-item" data-design-type="list-item" id="n-c3488d32-b842-45cc-aa2f-01b9e07d5f65" class="cli-advantage-item cli-flex-list__item"><div id="n-86a491c4-17f7-453f-a415-3af268b5597b" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" class="cli-iconed-card" id="n-86a491c4-17f7-453f-a415-3af268b5597b"><div id="n-f48a2e08-bddd-4a5a-b6d6-a80bae5a6f64" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-draggable="true" data-design-type="icon" id="n-f48a2e08-bddd-4a5a-b6d6-a80bae5a6f64" class="cli-iconed-card__icon" data-type="image-wrapper" data-title="CDN_PUG_COMPONENTS_ICON"><div id="n-a095959e-fc77-4bb6-a7ff-dfc7806a6bc1" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-multitype="true" data-system-sizes="666,80px,80px,fill;767,80px,80px,fill;1023,80px,80px,fill;1199,80px,80px,fill;1920,80px,80px,fill" data-widget-controls="true" id="n-a095959e-fc77-4bb6-a7ff-dfc7806a6bc1" class="cli-svg" data-type="icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M12.4946 36.9144L15.952 39L35.5438 11.4866L32.2401 9L12.4946 36.9144ZM8 17.1417C8 21.3128 11.1885 24.2406 15.3758 24.2406C19.563 24.2406 22.7131 21.3128 22.7131 17.1417C22.7131 12.9305 19.563 10.0027 15.3758 10.0027C11.1885 10.0027 8 12.9305 8 17.1417ZM12.3409 17.1417C12.3409 15.1765 13.7623 13.893 15.3758 13.893C16.9892 13.893 18.3721 15.1765 18.3721 17.1417C18.3721 19.1471 17.0276 20.4305 15.3758 20.4305C13.8007 20.4305 12.3409 19.1471 12.3409 17.1417ZM25.2869 31.2193C25.2869 35.3904 28.4754 38.3583 32.6627 38.3583C36.8115 38.3583 40 35.3904 40 31.2193C40 27.008 36.8115 24.1203 32.6627 24.1203C28.4754 24.1203 25.2869 27.008 25.2869 31.2193ZM29.6278 31.2193C29.6278 29.2139 31.0492 27.9305 32.6627 27.9305C34.2377 27.9305 35.6591 29.2139 35.6591 31.2193C35.6591 33.1845 34.2761 34.4679 32.6627 34.4679C31.0876 34.4679 29.6278 33.1845 29.6278 31.2193Z"></path></svg></div></div><div id="n-63850d8e-6381-46af-ba70-aa0e8114aa87" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-design-type="text" class="cli-iconed-card__title cli-text-medium cli-text-center" data-type="text" data-title="CDN_PUG_COMPONENTS_TITLE" data-draggable="true" data-gpt-value="Честность и доброта" id="n-63850d8e-6381-46af-ba70-aa0e8114aa87">Честность и доброта</div><div id="n-2cb68b04-0300-47be-a830-830746c54f78" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-gpt-value="$DF объединяет людей, для которых важны честность, доброта и взаимопомощь, наподобие настоящей семьи." data-design-type="text" data-title="CDN_PUG_COMPONENTS_SUBTITLE" data-draggable="true" id="n-2cb68b04-0300-47be-a830-830746c54f78" class="cli-iconed-card__description cli-text-center" data-type="text">$DF объединяет людей, для которых важны честность, доброта и взаимопомощь, наподобие настоящей семьи.</div></div></li><li id="n-46e3c97d-c36f-494e-bb57-1a12b52285b4" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" id="n-46e3c97d-c36f-494e-bb57-1a12b52285b4" class="cli-advantage-item cli-flex-list__item" data-type="list-item" data-design-type="list-item"><div id="n-0ecd2215-5c1a-4a23-ac21-40a4a0da4714" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" id="n-0ecd2215-5c1a-4a23-ac21-40a4a0da4714" class="cli-iconed-card"><div id="n-741b75dd-5513-4638-8809-dbcd9dfcaa98" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-title="CDN_PUG_COMPONENTS_ICON" data-draggable="true" data-design-type="icon" id="n-741b75dd-5513-4638-8809-dbcd9dfcaa98" class="cli-iconed-card__icon" data-type="image-wrapper"><div id="n-d3994d11-41b8-4602-acb2-62d802720e41" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-system-sizes="666,80px,80px,fill;767,80px,80px,fill;1023,80px,80px,fill;1199,80px,80px,fill;1920,80px,80px,fill" data-widget-controls="true" id="n-d3994d11-41b8-4602-acb2-62d802720e41" class="cli-svg" data-type="icon" data-multitype="true"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M12.4946 36.9144L15.952 39L35.5438 11.4866L32.2401 9L12.4946 36.9144ZM8 17.1417C8 21.3128 11.1885 24.2406 15.3758 24.2406C19.563 24.2406 22.7131 21.3128 22.7131 17.1417C22.7131 12.9305 19.563 10.0027 15.3758 10.0027C11.1885 10.0027 8 12.9305 8 17.1417ZM12.3409 17.1417C12.3409 15.1765 13.7623 13.893 15.3758 13.893C16.9892 13.893 18.3721 15.1765 18.3721 17.1417C18.3721 19.1471 17.0276 20.4305 15.3758 20.4305C13.8007 20.4305 12.3409 19.1471 12.3409 17.1417ZM25.2869 31.2193C25.2869 35.3904 28.4754 38.3583 32.6627 38.3583C36.8115 38.3583 40 35.3904 40 31.2193C40 27.008 36.8115 24.1203 32.6627 24.1203C28.4754 24.1203 25.2869 27.008 25.2869 31.2193ZM29.6278 31.2193C29.6278 29.2139 31.0492 27.9305 32.6627 27.9305C34.2377 27.9305 35.6591 29.2139 35.6591 31.2193C35.6591 33.1845 34.2761 34.4679 32.6627 34.4679C31.0876 34.4679 29.6278 33.1845 29.6278 31.2193Z"></path></svg></div></div><div id="n-02f70939-7ca0-42d7-98d8-d3298c074c24" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-type="text" data-design-type="text" id="n-02f70939-7ca0-42d7-98d8-d3298c074c24" class="cli-iconed-card__title cli-text-medium cli-text-center" data-title="CDN_PUG_COMPONENTS_TITLE" data-draggable="true" data-gpt-value="Доверие и комфорт">Доверие и комфорт</div><div id="n-c4572489-59ec-494b-a9bc-2b680cb5f1fe" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-draggable="true" data-type="text" data-gpt-value="Создайте атмосферу доверия, где каждый чувствует себя как дома, делится мечтами и получает поддержку." data-design-type="text" id="n-c4572489-59ec-494b-a9bc-2b680cb5f1fe" class="cli-iconed-card__description cli-text-center" data-title="CDN_PUG_COMPONENTS_SUBTITLE">Создайте атмосферу доверия, где каждый чувствует себя как дома, делится мечтами и получает поддержку.</div></div></li><li id="n-19f8fc3c-7e33-49e2-805e-aa19616da379" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" id="n-19f8fc3c-7e33-49e2-805e-aa19616da379" class="cli-advantage-item cli-flex-list__item" data-type="list-item" data-design-type="list-item"><div id="n-ecb61f5f-8de9-4100-8ed4-29c12f38ae66" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" id="n-ecb61f5f-8de9-4100-8ed4-29c12f38ae66" class="cli-iconed-card"><div id="n-60ad26bd-f2d7-4904-baef-5cf2c4a84629" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" class="cli-iconed-card__icon" data-type="image-wrapper" data-title="CDN_PUG_COMPONENTS_ICON" data-draggable="true" data-design-type="icon" id="n-60ad26bd-f2d7-4904-baef-5cf2c4a84629"><div id="n-1956d619-c35b-4bad-a6cb-a3cb007f85cd" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" id="n-1956d619-c35b-4bad-a6cb-a3cb007f85cd" class="cli-svg" data-type="icon" data-multitype="true" data-system-sizes="666,80px,80px,fill;767,80px,80px,fill;1023,80px,80px,fill;1199,80px,80px,fill;1920,80px,80px,fill" data-widget-controls="true"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M12.4946 36.9144L15.952 39L35.5438 11.4866L32.2401 9L12.4946 36.9144ZM8 17.1417C8 21.3128 11.1885 24.2406 15.3758 24.2406C19.563 24.2406 22.7131 21.3128 22.7131 17.1417C22.7131 12.9305 19.563 10.0027 15.3758 10.0027C11.1885 10.0027 8 12.9305 8 17.1417ZM12.3409 17.1417C12.3409 15.1765 13.7623 13.893 15.3758 13.893C16.9892 13.893 18.3721 15.1765 18.3721 17.1417C18.3721 19.1471 17.0276 20.4305 15.3758 20.4305C13.8007 20.4305 12.3409 19.1471 12.3409 17.1417ZM25.2869 31.2193C25.2869 35.3904 28.4754 38.3583 32.6627 38.3583C36.8115 38.3583 40 35.3904 40 31.2193C40 27.008 36.8115 24.1203 32.6627 24.1203C28.4754 24.1203 25.2869 27.008 25.2869 31.2193ZM29.6278 31.2193C29.6278 29.2139 31.0492 27.9305 32.6627 27.9305C34.2377 27.9305 35.6591 29.2139 35.6591 31.2193C35.6591 33.1845 34.2761 34.4679 32.6627 34.4679C31.0876 34.4679 29.6278 33.1845 29.6278 31.2193Z"></path></svg></div></div><div id="n-a0bb4ad5-387a-4520-bab0-978d9f6a5145" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-draggable="true" data-gpt-value="Активное развитие проекта" data-design-type="text" data-type="text" id="n-a0bb4ad5-387a-4520-bab0-978d9f6a5145" class="cli-iconed-card__title cli-text-medium cli-text-center" data-title="CDN_PUG_COMPONENTS_TITLE">Активное развитие проекта</div><div id="n-7732570c-d57a-420c-baab-3ea7ddd88475" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-type="text" data-title="CDN_PUG_COMPONENTS_SUBTITLE" data-draggable="true" data-gpt-value="Часть комиссий направляется на развитие проекта, поддерживая его устойчивость и инновации." data-design-type="text" id="n-7732570c-d57a-420c-baab-3ea7ddd88475" class="cli-iconed-card__description cli-text-center">Часть комиссий направляется на развитие проекта, поддерживая его устойчивость и инновации.</div></div></li></ul></div></div><div id="n-f5361f54-18c7-4368-beed-91b205b9bf59" data-root-id="4277eb56-8da8-4577-b200-6a04bf25e97b" data-image="true" class="cli-background" style="--background-color: #f7f8fa;" data-fill="true" id="n-f5361f54-18c7-4368-beed-91b205b9bf59" data-type="background" data-video="true" data-design-type="background"></div></section><section id="n-07a36fc1-4f81-460a-9614-0e78b48a7a44" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" class="cli-block cli-footer cli-block--default" data-type="block-wrapper" data-resize="true" data-design-type="block-wrapper" data-bind="e30=" id="n-07a36fc1-4f81-460a-9614-0e78b48a7a44"><div id="n-fda91594-4e92-4bb7-a564-0eba6fca7801" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" data-design-type="grid" data-design-order="1" data-block-content="true" id="n-fda91594-4e92-4bb7-a564-0eba6fca7801" class="cli-footer__content cli-footer__content--columns cli-block__content" data-type="grid" data-title="CDN_PUG_COMPONENTS_BLOCK"><a id="n-b0dfe0ee-db43-4b76-b215-dcb6ce59314c" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" href="/" data-type="logo" data-design-type="logo" data-design-order="4" id="n-b0dfe0ee-db43-4b76-b215-dcb6ce59314c" class="cli-logo cli-footer-logo cli-footer__col" data-title="CDN_PUG_COMPONENTS_LOGO" data-draggable="true" data-content-order="3"><div id="n-46e2f6e0-4bfd-4af6-8b2b-0955d7a2ab6f" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" data-design-type="text" id="n-46e2f6e0-4bfd-4af6-8b2b-0955d7a2ab6f" class="cli-logo__text cli-text-center--tablet cli-text-bold" data-type="text" data-gpt-value="Dmitry's Friends (DF)">Dmitry's Friends (DF)</div></a><div id="n-2c66527a-8db9-4064-915a-711303ed1f47" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" id="n-2c66527a-8db9-4064-915a-711303ed1f47" class="cli-social-list cli-text-center cli-footer__col cli-row-start__xl--1 cli-row-end__xl--3" data-type="social" data-design-type="social" data-design-order="6" data-title="CDN_PUG_COMPONENTS_SOCIAL" data-content-order="5"><a id="n-81cfcf75-3662-4739-a8f2-614291dc788e" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" data-type="button" data-draggable="true" data-design-type="button" id="n-81cfcf75-3662-4739-a8f2-614291dc788e" class="cli-button cli-button--rounded cli-button--advance cli-button--theme-content cli-social-list__button" data-title="CDN_PUG_MODELS_TELEGRAM" href="#"><div id="n-0ca6b10e-749e-4162-82e8-d0abb7550b48" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" data-type="icon" data-title="CDN_PUG_COMPONENTS_ICON" data-system-sizes="666,28px,28px,fill;767,28px,28px,fill;1023,28px,28px,fill;1199,28px,28px,fill;1920,28px,28px,fill" data-widget-controls="true" id="n-0ca6b10e-749e-4162-82e8-d0abb7550b48" class="cli-svg cli-button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="presentation" aria-labelledby="cli-telegram"><g fill="currentColor"><path clip-rule="evenodd" d="M23.91 3.78999L20.3 20.84C20.05 22.05 19.32 22.34 18.3 21.78L12.8 17.71L10.14 20.28C9.84 20.58 9.59 20.84 9.04 20.84C8.32 20.84 8.44 20.57 8.2 19.89L6.3 13.7L0.849998 12C-0.330002 11.65 -0.340002 10.84 1.11 10.25L22.37 2.04999C23.34 1.61999 24.27 2.28999 23.9 3.77999L23.91 3.78999Z" fill-rule="evenodd"></path></g></svg></div></a><a id="n-99ab965b-ffe0-4a68-a525-4e2484e54b53" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" href="#" data-design-type="button" id="n-99ab965b-ffe0-4a68-a525-4e2484e54b53" class="cli-button cli-button--rounded cli-button--advance cli-button--theme-content cli-social-list__button" data-type="button" data-title="CDN_PUG_ELEMENTS_WHATSAPP" data-draggable="true"><div id="n-d240509b-1bd8-4ee8-8601-a4cd43abd9bb" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" data-system-sizes="666,28px,28px,fill;767,28px,28px,fill;1023,28px,28px,fill;1199,28px,28px,fill;1920,28px,28px,fill" data-widget-controls="true" id="n-d240509b-1bd8-4ee8-8601-a4cd43abd9bb" class="cli-svg cli-button__icon" data-type="icon" data-title="CDN_PUG_COMPONENTS_ICON"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="presentation" aria-labelledby="cli-whatsapp"><g fill="currentColor"><path clip-rule="evenodd" d="M17.472 14.382C17.175 14.233 15.714 13.515 15.442 13.415C15.169 13.316 14.971 13.267 14.772 13.565C14.575 13.862 14.005 14.531 13.832 14.729C13.659 14.928 13.485 14.952 13.188 14.804C12.891 14.654 11.933 14.341 10.798 13.329C9.91501 12.541 9.31801 11.568 9.14501 11.27C8.97201 10.973 9.12701 10.812 9.27501 10.664C9.40901 10.531 9.57301 10.317 9.72101 10.144C9.87001 9.96998 9.91901 9.84598 10.019 9.64698C10.118 9.44898 10.069 9.27598 9.99401 9.12698C9.91901 8.97798 9.32501 7.51498 9.07801 6.91998C8.83601 6.34098 8.59101 6.41998 8.40901 6.40998C8.23601 6.40198 8.03801 6.39998 7.83901 6.39998C7.64101 6.39998 7.31901 6.47398 7.04701 6.77198C6.77501 7.06898 6.00701 7.78798 6.00701 9.25098C6.00701 10.713 7.07201 12.126 7.22001 12.325C7.36901 12.523 9.31601 15.525 12.297 16.812C13.006 17.118 13.559 17.301 13.991 17.437C14.703 17.664 15.351 17.632 15.862 17.555C16.433 17.47 17.62 16.836 17.868 16.142C18.116 15.448 18.116 14.853 18.041 14.729C17.967 14.605 17.769 14.531 17.471 14.382H17.472ZM12.05 21.785H12.046C10.2758 21.7851 8.53809 21.3092 7.01501 20.407L6.65401 20.193L2.91301 21.175L3.91101 17.527L3.67601 17.153C2.68645 15.5772 2.16295 13.7537 2.16601 11.893C2.16701 6.44298 6.60201 2.00898 12.054 2.00898C14.694 2.00898 17.176 3.03898 19.042 4.90698C19.9627 5.8236 20.6924 6.91371 21.189 8.11422C21.6856 9.31474 21.9391 10.6018 21.935 11.901C21.932 17.351 17.498 21.785 12.05 21.785ZM20.463 3.48798C19.3612 2.3789 18.0502 1.49952 16.6061 0.90078C15.162 0.302044 13.6133 -0.00413728 12.05 -2.00576e-05C5.49501 -2.00576e-05 0.160007 5.33498 0.157007 11.892C0.157007 13.988 0.704007 16.034 1.74501 17.837L0.0570068 24L6.36201 22.346C8.1056 23.2959 10.0594 23.7937 12.045 23.794H12.05C18.604 23.794 23.94 18.459 23.943 11.901C23.9478 10.3383 23.6428 8.79008 23.0454 7.34601C22.4481 5.90195 21.5704 4.59065 20.463 3.48798Z" fill-rule="evenodd"></path></g></svg></div></a><a id="n-2f6c8965-4021-4086-a2af-20b4c5271ded" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" class="cli-button cli-button--rounded cli-button--advance cli-button--theme-content cli-social-list__button" data-title="CDN_PUG_MODELS_TWITTER" data-design-type="button" id="n-2f6c8965-4021-4086-a2af-20b4c5271ded" data-type="button" data-draggable="true" href="#"><div id="n-f3c16114-a2b6-4e7c-ae36-18ea1c6bbc0f" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" class="cli-svg cli-button__icon" data-type="icon" data-title="CDN_PUG_COMPONENTS_ICON" data-system-sizes="666,28px,28px,fill;767,28px,28px,fill;1023,28px,28px,fill;1199,28px,28px,fill;1920,28px,28px,fill" data-widget-controls="true" id="n-f3c16114-a2b6-4e7c-ae36-18ea1c6bbc0f"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="presentation" aria-labelledby="cli-twitter"><g data-v-f838f072="" fill="currentColor"><path data-v-f838f072="" d="M23.954 4.56897C23.069 4.95797 22.124 5.22297 21.129 5.34397C22.143 4.73297 22.923 3.76997 23.292 2.62097C22.341 3.17597 21.287 3.57997 20.165 3.80497C19.269 2.84597 17.992 2.24597 16.574 2.24597C13.857 2.24597 11.654 4.44897 11.654 7.16297C11.654 7.55297 11.699 7.92797 11.781 8.28697C7.691 8.09397 4.066 6.12997 1.64 3.16097C1.213 3.88297 0.974 4.72197 0.974 5.63597C0.974 7.34597 1.844 8.84897 3.162 9.73197C2.355 9.70597 1.596 9.48397 0.934 9.11597V9.17697C0.934 11.562 2.627 13.551 4.88 14.004C4.467 14.115 4.031 14.175 3.584 14.175C3.27 14.175 2.969 14.145 2.668 14.089C3.299 16.042 5.113 17.466 7.272 17.506C5.592 18.825 3.463 19.611 1.17 19.611C0.78 19.611 0.391 19.588 0 19.544C2.189 20.938 4.768 21.753 7.557 21.753C16.611 21.753 21.556 14.257 21.556 7.76697C21.556 7.55797 21.556 7.34697 21.541 7.13697C22.502 6.44797 23.341 5.57697 24.001 4.58897L23.954 4.56897Z" fill-rule="evenodd" clip-rule="evenodd"></path></g></svg></div></a><a id="n-41e87654-dd7e-4a48-ba0c-bd01242d22bd" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" class="cli-button cli-button--rounded cli-button--advance cli-button--theme-content cli-social-list__button" data-type="button" data-draggable="true" data-design-type="button" id="n-41e87654-dd7e-4a48-ba0c-bd01242d22bd" href="#" data-title="CDN_PUG_MODELS_VKONTAKTE"><div id="n-aedc9dbb-ddb8-4d71-9c8c-4955037ad5b3" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" data-type="icon" data-title="CDN_PUG_COMPONENTS_ICON" data-system-sizes="666,28px,28px,fill;767,28px,28px,fill;1023,28px,28px,fill;1199,28px,28px,fill;1920,28px,28px,fill" data-widget-controls="true" id="n-aedc9dbb-ddb8-4d71-9c8c-4955037ad5b3" class="cli-svg cli-button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="presentation" aria-labelledby="cli-vkontakte"><g data-v-f838f072="" fill="currentColor"><path data-v-f838f072="" d="M23.057 19.3021H20.4367C19.4451 19.3021 19.1386 18.5133 17.3566 16.7073C15.8046 15.2048 15.1179 15.002 14.7363 15.002C14.2014 15.002 14.0482 15.1552 14.0482 15.893V18.2594C14.0482 18.8964 13.8453 19.278 12.1656 19.278C9.39198 19.278 6.3119 17.5983 4.14984 14.4671C0.892471 9.88756 0 6.45139 0 5.73922C0 5.35759 0.153253 5.0015 0.890969 5.0015H3.51129C4.17238 5.0015 4.4278 5.3065 4.68322 6.01868C5.97986 9.75985 8.14342 13.0428 9.03439 13.0428C9.36494 13.0428 9.51819 12.8895 9.51819 12.0511V8.18074C9.41602 6.39881 8.47397 6.24706 8.47397 5.61151C8.47397 5.305 8.72939 5 9.13506 5H13.2579C13.8183 5 14.0211 5.305 14.0211 5.96609V11.1842C14.0211 11.7431 14.2765 11.9475 14.4283 11.9475C14.7588 11.9475 15.0398 11.7431 15.6498 11.1331C17.5339 9.02063 18.8816 5.76326 18.8816 5.76326C19.0604 5.38163 19.3654 5.02554 20.028 5.02554H22.6483C23.4371 5.02554 23.6159 5.43121 23.4371 5.99163C23.1066 7.51965 19.9003 12.0481 19.9003 12.0481C19.6208 12.5064 19.5187 12.7092 19.9003 13.2201C20.1798 13.6017 21.0963 14.3905 21.7078 15.1027C22.8271 16.3753 23.6911 17.4435 23.9209 18.1827C24.1764 18.919 23.7932 19.3006 23.0555 19.3006L23.057 19.3021Z" fill-rule="evenodd" clip-rule="evenodd"></path></g></svg></div></a></div><nav id="n-e083cfa2-87f4-444b-b025-2edc2630c9f4" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" data-design-order="5" data-content-order="4" id="n-e083cfa2-87f4-444b-b025-2edc2630c9f4" data-type="menu" data-title="CDN_PUG_COMPONENTS_MENU" data-draggable="true" class="cli-menu cli-footer__col cli-row-start__xl--1 cli-row-end__xl--3 cli-menu--tablet-horizontal cli-menu--mobile-hidden" data-design-type="menu"><a id="n-7db5ad40-1d65-4964-b998-04fa851566dc" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" data-design-type="menu-item" data-public-menu-item href="#" data-title="CDN_PUG_COMPONENTS_MENU" id="n-7db5ad40-1d65-4964-b998-04fa851566dc" class="cli-menu__link" data-type="menu-item"><div id="n-67670990-6b0e-4a00-86fb-d28032c09190" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" class data-type="text" data-design-type="text" id="n-67670990-6b0e-4a00-86fb-d28032c09190">О компании</div><div id="n-950397f5-0019-4ac5-b977-36fd965f4287" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" class="cli-menu__arrow" id="n-950397f5-0019-4ac5-b977-36fd965f4287"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="presentation" aria-labelledby="header-menu-arrow"><g fill="currentColor"><path d="M12.0013 15.9993C11.7676 15.9998 11.5412 15.9184 11.3613 15.7693L6.36125 11.7693C6.15704 11.5996 6.02861 11.3556 6.00423 11.0912C5.97985 10.8268 6.06151 10.5635 6.23125 10.3593C6.40099 10.1551 6.6449 10.0267 6.90933 10.0023C7.17375 9.9779 7.43704 10.0596 7.64125 10.2293L12.0013 13.7093L16.3613 10.3893C16.4635 10.3062 16.5812 10.2442 16.7076 10.2068C16.8339 10.1693 16.9664 10.1572 17.0974 10.1712C17.2285 10.1851 17.3554 10.2248 17.4711 10.288C17.5867 10.3512 17.6887 10.4366 17.7713 10.5393C17.8628 10.6421 17.9322 10.7627 17.975 10.8936C18.0178 11.0245 18.0331 11.1628 18.0199 11.2999C18.0068 11.4369 17.9655 11.5698 17.8986 11.6902C17.8317 11.8105 17.7407 11.9158 17.6313 11.9993L12.6313 15.8293C12.4462 15.9548 12.2244 16.0147 12.0013 15.9993Z" fill-rule="evenodd" clip-rule="evenodd"></path></g></svg></div></a><a id="n-3ad3e189-6ed8-4e3a-9d28-347b221975bb" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" data-type="menu-item" data-design-type="menu-item" data-public-menu-item href="#" class="cli-menu__link" data-title="CDN_PUG_COMPONENTS_MENU" id="n-3ad3e189-6ed8-4e3a-9d28-347b221975bb"><div id="n-e9be87cc-06cf-41d8-ae55-7139cd1ec6d5" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" data-type="text" data-design-type="text" id="n-e9be87cc-06cf-41d8-ae55-7139cd1ec6d5" class>Новости</div><div id="n-4efdef67-d50b-425b-b28d-927f294fbca9" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" id="n-4efdef67-d50b-425b-b28d-927f294fbca9" class="cli-menu__arrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="presentation" aria-labelledby="header-menu-arrow"><g fill="currentColor"><path d="M12.0013 15.9993C11.7676 15.9998 11.5412 15.9184 11.3613 15.7693L6.36125 11.7693C6.15704 11.5996 6.02861 11.3556 6.00423 11.0912C5.97985 10.8268 6.06151 10.5635 6.23125 10.3593C6.40099 10.1551 6.6449 10.0267 6.90933 10.0023C7.17375 9.9779 7.43704 10.0596 7.64125 10.2293L12.0013 13.7093L16.3613 10.3893C16.4635 10.3062 16.5812 10.2442 16.7076 10.2068C16.8339 10.1693 16.9664 10.1572 17.0974 10.1712C17.2285 10.1851 17.3554 10.2248 17.4711 10.288C17.5867 10.3512 17.6887 10.4366 17.7713 10.5393C17.8628 10.6421 17.9322 10.7627 17.975 10.8936C18.0178 11.0245 18.0331 11.1628 18.0199 11.2999C18.0068 11.4369 17.9655 11.5698 17.8986 11.6902C17.8317 11.8105 17.7407 11.9158 17.6313 11.9993L12.6313 15.8293C12.4462 15.9548 12.2244 16.0147 12.0013 15.9993Z" fill-rule="evenodd" clip-rule="evenodd"></path></g></svg></div></a><a id="n-e43e03fa-ba99-4924-81bb-17243c6b291f" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" data-public-menu-item class="cli-menu__link" data-title="CDN_PUG_COMPONENTS_MENU" id="n-e43e03fa-ba99-4924-81bb-17243c6b291f" href="#" data-type="menu-item" data-design-type="menu-item"><div id="n-f4909bbd-2381-40aa-bca2-14ec16f7a25b" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" data-design-type="text" id="n-f4909bbd-2381-40aa-bca2-14ec16f7a25b" class data-type="text">Помощь</div><div id="n-be572fc2-7bd6-4dad-b409-880012b6c7ca" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" class="cli-menu__arrow" id="n-be572fc2-7bd6-4dad-b409-880012b6c7ca"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="presentation" aria-labelledby="header-menu-arrow"><g fill="currentColor"><path d="M12.0013 15.9993C11.7676 15.9998 11.5412 15.9184 11.3613 15.7693L6.36125 11.7693C6.15704 11.5996 6.02861 11.3556 6.00423 11.0912C5.97985 10.8268 6.06151 10.5635 6.23125 10.3593C6.40099 10.1551 6.6449 10.0267 6.90933 10.0023C7.17375 9.9779 7.43704 10.0596 7.64125 10.2293L12.0013 13.7093L16.3613 10.3893C16.4635 10.3062 16.5812 10.2442 16.7076 10.2068C16.8339 10.1693 16.9664 10.1572 17.0974 10.1712C17.2285 10.1851 17.3554 10.2248 17.4711 10.288C17.5867 10.3512 17.6887 10.4366 17.7713 10.5393C17.8628 10.6421 17.9322 10.7627 17.975 10.8936C18.0178 11.0245 18.0331 11.1628 18.0199 11.2999C18.0068 11.4369 17.9655 11.5698 17.8986 11.6902C17.8317 11.8105 17.7407 11.9158 17.6313 11.9993L12.6313 15.8293C12.4462 15.9548 12.2244 16.0147 12.0013 15.9993Z" fill-rule="evenodd" clip-rule="evenodd"></path></g></svg></div></a><a id="n-db3ddd21-1a0e-43e9-a429-b47cfb2ac509" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" data-title="CDN_PUG_COMPONENTS_MENU" id="n-db3ddd21-1a0e-43e9-a429-b47cfb2ac509" data-design-type="menu-item" data-public-menu-item href="#" class="cli-menu__link" data-type="menu-item"><div id="n-9a85d061-6f91-4ecc-be2b-7b45f21fb43b" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" id="n-9a85d061-6f91-4ecc-be2b-7b45f21fb43b" class data-type="text" data-design-type="text">Контакты</div><div id="n-dd1025fe-ded9-4c6d-983d-8cc7d5eebec4" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" class="cli-menu__arrow" id="n-dd1025fe-ded9-4c6d-983d-8cc7d5eebec4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="presentation" aria-labelledby="header-menu-arrow"><g fill="currentColor"><path d="M12.0013 15.9993C11.7676 15.9998 11.5412 15.9184 11.3613 15.7693L6.36125 11.7693C6.15704 11.5996 6.02861 11.3556 6.00423 11.0912C5.97985 10.8268 6.06151 10.5635 6.23125 10.3593C6.40099 10.1551 6.6449 10.0267 6.90933 10.0023C7.17375 9.9779 7.43704 10.0596 7.64125 10.2293L12.0013 13.7093L16.3613 10.3893C16.4635 10.3062 16.5812 10.2442 16.7076 10.2068C16.8339 10.1693 16.9664 10.1572 17.0974 10.1712C17.2285 10.1851 17.3554 10.2248 17.4711 10.288C17.5867 10.3512 17.6887 10.4366 17.7713 10.5393C17.8628 10.6421 17.9322 10.7627 17.975 10.8936C18.0178 11.0245 18.0331 11.1628 18.0199 11.2999C18.0068 11.4369 17.9655 11.5698 17.8986 11.6902C17.8317 11.8105 17.7407 11.9158 17.6313 11.9993L12.6313 15.8293C12.4462 15.9548 12.2244 16.0147 12.0013 15.9993Z" fill-rule="evenodd" clip-rule="evenodd"></path></g></svg></div></a></nav><div id="n-fbe2c70e-ca77-404c-8f00-c115677040d6" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" id="n-fbe2c70e-ca77-404c-8f00-c115677040d6" class="cli-footer__col cli-footer-list--vertical-xl-sm cli-footer__col cli-row-start__xl--1 cli-row-end__xl--3"><a id="n-ac69edc2-bbc5-4748-a6f8-a7a16513998b" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" data-title="CDN_PUG_COMPONENTS_PHONE" id="n-ac69edc2-bbc5-4748-a6f8-a7a16513998b" class="cli-footer-list__contact cli-footer-list__item" data-gpt-value="+7 (999) 123-45-67" data-design-order="3" data-content-order="2" href="tel:+74951234567" data-type="text" data-draggable="true" data-design-type="text">+7 (999) 123-45-67</a><a id="n-504a62c5-d779-4f70-bd51-f6ed2716292e" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" class="cli-footer-list__contact cli-footer-list__item" data-type="text" data-draggable="true" data-design-order="4" data-gpt-value="info@dmitrysfriends.com" data-design-type="text" data-content-order="3" id="n-504a62c5-d779-4f70-bd51-f6ed2716292e" href="mailto:hello@olympia.ru" data-title="CDN_PUG_COMPONENTS_EMAIL">info@dmitrysfriends.com</a></div><div id="n-915a4893-36c8-47b6-9311-d0818f30dd16" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" id="n-915a4893-36c8-47b6-9311-d0818f30dd16" data-type="text" data-title="CDN_PUG_MODELS_COPYWRITING" data-design-type="text" data-draggable="true" data-gpt-value="© 2023 Dmitry's Friends. Все права защищены." data-content-order="1" class="cli-footer__col cli-footer__copyright cli-text-center--tablet" data-design-order="2">© 2023 Dmitry's Friends. Все права защищены.</div></div><div id="n-c68bc15a-936a-4cc4-8d2e-a5e3b85bd878" data-root-id="18161cae-7b18-411e-83b7-9d423017d1c1" data-design-type="background" id="n-c68bc15a-936a-4cc4-8d2e-a5e3b85bd878" class="cli-background" style="--background-color: #F7F8FA;" data-fill="true" data-type="background"></div></section>
+                <div class="craftum-label craftum-label--white">
+                    <span class="craftum-label-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" aria-labelledby="craftum-icon" role="presentation" class="craftum-icon">
+                        <path fill="black" d="M10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0ZM15.8333 13.6447C14.7055 15.4945 12.5815 16.6667 10.1754 16.6667C8.20175 16.6667 6.56642 16.0256 5.26942 14.7436C3.97243 13.4615 3.33333 11.8864 3.33333 10C3.33333 8.11355 3.97243 6.52015 5.26942 5.25641C6.56642 3.97436 8.20175 3.33333 10.1754 3.33333C12.5627 3.33333 14.7055 4.50549 15.8333 6.35531L13.5965 7.61905C12.9386 6.4652 11.6792 5.78755 10.1754 5.78755C8.89724 5.78755 7.86341 6.17216 7.07394 6.95971C6.30326 7.74725 5.90852 8.75458 5.90852 10C5.90852 11.2271 6.30326 12.2344 7.07394 13.022C7.86341 13.8095 8.89724 14.1941 10.1754 14.1941C11.6792 14.1941 12.9762 13.4982 13.5965 12.381L15.8333 13.6447Z" fill-rule="evenodd" clip-rule="evenodd">
+                        </path>
+                        </svg>
+                    </span>
+                    <span class="craftum-label__inner-name">Craftum</span>
+                    <a target="_blank" href="https://craftum.com" class="craftum-label__inner-description">
+                            Конструктор сайтов <span class="craftum-label__inner-description--text-bold"> Craftum </span>  
+                    </a>
+                </div>
+            <script>
+                window.PageCtx = null
+            </script>
+                    <script src="/static/common.js"></script>                          
+                    <script src="/static/menu.js"></script>
+        </div>
+    </body>
 </html>
