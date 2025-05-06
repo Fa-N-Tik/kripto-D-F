@@ -182,26 +182,35 @@
     /* Media Queries */
     @media (max-width: 768px) {
       .menu-toggle { display: block; }
-      nav { display: none; }
-      nav.active { 
-        display: flex; 
-        flex-direction: column; 
+
+      /* Скрываем навигацию, показываем по клику */
+      nav {
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
         background: #0a007d;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
       }
-      .nav-menu { flex-direction: column; align-items: stretch; }
+      nav.active {
+        max-height: 500px;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .nav-menu {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.5em 0;
+      }
       .container { padding: 0.5em; }
       .btn { width: 100%; }
     }
-      nav { display: none; }
-      nav.active { display: block; }
-      .nav-menu { flex-direction: column; align-items: stretch; }
-      .container { padding: 0.5em; }
-      .btn { width: 100%; }
-    }
+
     @media (max-width: 480px) {
       html { font-size: 14px; }
       header { padding: 0.5em 1em; }
@@ -215,7 +224,7 @@
   <a href="#content" class="skip-link">Перейти к содержанию</a>
   <header>
     <button class="menu-toggle" aria-label="Открыть меню">☰</button>
-    <nav aria-label="Основная навигация">
+    <nav id="main-nav" aria-label="Основная навигация">
       <ul class="nav-menu">
         <li><a href="#hero">Главная</a></li>
         <li><a href="#about">О нас</a></li>
@@ -241,7 +250,7 @@
         <h2 id="about-heading">О нашем токене</h2>
         <p>Этот токен – как семейный очаг, созданный для тех, кто ценит дружбу, поддержку и душевное тепло.</p>
         <ul>
-          <li>Надежная опора для создателей полезных проектов.</li>
+          <li>Надёжная опора для создателей полезных проектов.</li>
           <li>Честность, доброта и взаимопомощь.</li>
           <li>Атмосфера доверия, где каждый как дома.</li>
         </ul>
@@ -290,10 +299,14 @@
     © 2025 Dmitry's Friends. Все права защищены.
   </footer>
   <script>
-    const toggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav');
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('active');
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.querySelector('.menu-toggle');
+      const nav = document.getElementById('main-nav');
+
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('active');
+        toggle.textContent = isOpen ? '×' : '☰';
+      });
     });
   </script>
 </body>
