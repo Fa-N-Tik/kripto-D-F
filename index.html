@@ -2,38 +2,30 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#007ACC">
   <meta name="description" content="Dmitry's Friends — токен, рожденный из дружбы и семейного тепла. Присоединяйтесь к теплой семье DF и вместе делайте мир добрее!">
   <title>Dmitry's Friends (DF)</title>
   <style>
-    /* Base reset and box-sizing */
+    /* Сброс и базовые настройки */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body {
+    html {
       font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #007bff; /* ярко-синий текст */
-      background: url('4.jpg') center center / cover fixed no-repeat;
+      font-size: 16px;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      width: 100%;
+    }
+    body {
+      color: #333;               /* Тёмный текст для контраста */
+      background-color: #fff;
       display: flex;
       flex-direction: column;
-      overflow-x: hidden; /* предотвращает горизонтальную прокрутку на мобильных */
-      width: 100%;
-    } height: 100%; margin: 0; padding: 0; scroll-behavior: smooth; }
-   /* Пример стилей текста для мобильных устройств */
-body {
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333;
-  background-color: #fff;
-}
-p {
-  margin: 1em 0;
-}
-h1 {
-  font-size: 2rem;
-  margin: 0.5em 0;
-}
-    /* Accessibility: skip to content */
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Доступность: пропустить к содержимому */
     .skip-link {
       position: absolute;
       top: -40px;
@@ -45,131 +37,164 @@ h1 {
       transition: top 0.3s;
     }
     .skip-link:focus { top: 0; }
+
+    /* Шапка и навигация */
     header {
       position: fixed;
+      top: 0;
       width: 100%;
       background: #0a007d;
-      display: flex;
-      justify-content: center;
       z-index: 1000;
     }
-    nav ul {
+    nav {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+    .nav-menu {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 1em;
     }
-    nav a {
-      color: #ffd700; /* gold for active nav */
+    .nav-menu a {
+      color: #ffd700;
       text-decoration: none;
-      padding: 15px;
+      padding: 0.8em;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
     }
-    nav a:hover, nav a:focus {
-      text-decoration: underline;
-    }
+    .nav-menu a:hover,
+    .nav-menu a:focus { text-decoration: underline; }
+
     main {
       margin-top: 60px;
       flex: 1;
       display: flex;
+      width: 100%;
     }
     aside {
       width: 200px;
-      padding: 20px;
+      padding: 1em;
     }
     aside img {
       width: 100%;
+      height: auto;
       border-radius: 8px;
-      margin-bottom: 20px;
+      margin-bottom: 1em;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
+
     .container {
       flex: 1;
-      padding: 20px;
+      padding: 1em;
       display: grid;
-      gap: 40px;
+      gap: 2em;
       max-width: 1000px;
       margin: 0 auto;
     }
     section {
       background: transparent;
-      padding: 30px;
+      padding: 1.5em;
       border-radius: 8px;
     }
     h1, h2, h3 {
-      margin-bottom: 15px;
-      /* Хромированно-золотой текст */
+      margin-bottom: 0.75em;
+      font-weight: bold;
       background: linear-gradient(90deg, #c0a16b 0%, #ffdf7a 50%, #c0a16b 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: transparent;
     }
+
+    p, ul, form { margin-bottom: 1em; }
+    ul { list-style: disc inside; }
+
     .btn {
       display: inline-block;
       background: #006aff;
       color: #fff;
-      padding: 10px 20px;
+      padding: 0.8em 1.2em;
       border: none;
       border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
+      min-height: 44px;
+      text-align: center;
       transition: background 0.3s;
     }
     .btn:hover, .btn:focus { background: #004c99; }
+
+    /* Адаптивные изображения и таблицы */
+    img { max-width: 100%; height: auto; }
+    .table-responsive { overflow-x: auto; }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 20px 0;
+      margin-bottom: 1em;
+      font-size: 1rem;
     }
     th, td {
       border: 1px solid #a0c4ff;
-      padding: 10px;
+      padding: 0.75em;
       text-align: left;
     }
     th {
       background: #0a007d;
       color: #fff;
     }
+
     form label {
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 0.5em;
       font-weight: bold;
-      color: #007bff; /* label also bright blue */
+      color: #333;
     }
     form input, form textarea {
       width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
+      padding: 0.75em;
+      margin-bottom: 1em;
       border: 1px solid #ccc;
       border-radius: 4px;
       font-family: inherit;
+      font-size: 1rem;
     }
+
     footer {
       background: #0a007d;
       color: #ffd700;
       text-align: center;
-      padding: 15px;
+      padding: 1em;
     }
-    /* Пример: упрощенное мобильное меню */
-@media (max-width: 480px) {
-  .nav-menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .nav-menu a {
-    padding: 0.8em;
-    font-size: 18px;
-    min-height: 44px;
-    text-align: center;
-  }
-}
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      aside { display: none; }
+      main { flex-direction: column; }
+    }
+    @media (max-width: 768px) {
+      .nav-menu { flex-direction: column; align-items: stretch; }
+      .container { padding: 0.5em; }
+      .btn { width: 100%; }
+    }
+    @media (max-width: 480px) {
+      html { font-size: 14px; }
+      header { padding: 0.5em 0; }
+      .nav-menu a {
+        font-size: 1.1rem;
+        padding: 1em;
+      }
+      .container { gap: 1em; }
+      form input, form textarea { font-size: 0.9rem; }
+      table { font-size: 0.9rem; }
+    }
   </style>
 </head>
 <body>
   <a href="#content" class="skip-link">Перейти к содержанию</a>
   <header>
     <nav aria-label="Основная навигация">
-      <ul>
+      <ul class="nav-menu">
         <li><a href="#hero">Главная</a></li>
         <li><a href="#about">О нас</a></li>
         <li><a href="#tokenomics">Tokenomics</a></li>
@@ -201,15 +226,17 @@ h1 {
       </section>
       <section id="tokenomics" aria-labelledby="tokenomics-heading">
         <h2 id="tokenomics-heading">Tokenomics $DF</h2>
-        <table>
-          <thead>
-            <tr><th>Тип комиссии</th><th>Процент</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Покупка</td><td>20%</td></tr>
-            <tr><td>Продажа</td><td>25%</td></tr>
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr><th>Тип комиссии</th><th>Процент</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Покупка</td><td>20%</td></tr>
+              <tr><td>Продажа</td><td>25%</td></tr>
+            </tbody>
+          </table>
+        </div>
         <h3>Распределение комиссий</h3>
         <ul>
           <li>60% — держателям (пропорционально доле).</li>
