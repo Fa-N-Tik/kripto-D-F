@@ -18,7 +18,10 @@
     }
     body {
       color: #333;
-      background: url('4.jpg') center center / cover no-repeat;
+      background-image: url('background.jpg');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
@@ -32,6 +35,22 @@
       height: auto;
       display: block;
       margin: 2em auto;
+    }
+
+    /* Прозрачные секции, синий текст */
+    section {
+      background: transparent;
+      padding: 1.5em;
+      border-radius: 8px;
+      text-align: center;
+      color: #007bff;
+    }
+    section img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      margin-bottom: 1em;
+      border-radius: 4px;
     }
 
     /* Доступность: пропустить к содержимому */
@@ -114,12 +133,6 @@
       gap: 2em;
       max-width: 1000px;
       margin: 0 auto;
-    }
-    section {
-      background: rgba(255,255,255,0.8);
-      padding: 1.5em;
-      border-radius: 8px;
-      text-align: center;
     }
     h1, h2, h3 {
       margin-bottom: 0.75em;
@@ -250,6 +263,7 @@
     <div class="container">
       <!-- Hero -->
       <section id="hero" aria-labelledby="hero-heading">
+        <img src="hero.jpg" alt="Hero изображение">
         <h1 id="hero-heading">Встречайте Dmitry's Friends (DF)</h1>
         <p>Токен, рожденный из дружбы и семейного тепла!</p>
         <p>Присоединяйтесь к теплой семье DF и вместе сделаем мир добрее!</p>
@@ -257,17 +271,14 @@
       <img src="separator.jpg" alt="Разделитель" class="section-separator">
       <!-- About -->
       <section id="about" aria-labelledby="about-heading">
+        <img src="about.jpg" alt="О нас изображение">
         <h2 id="about-heading">О нашем токене</h2>
-        <p>Этот токен – как семейный очаг, созданный для тех, кто ценит дружбу, поддержку и душевное тепло.</p>
-        <ul>
-          <li>Надёжная опора для создателей полезных проектов.</li>
-          <li>Честность, доброта и взаимопомощь.</li>
-          <li>Атмосфера доверия, где каждый как дома.</li>
-        </ul>
+        <p>Этот токен – как семейный очаг, созданный для тех, кто ценит дружбу, поддержку и душевн</p>
       </section>
-      <img src="separator.jpg" alt="Разделитель" class="section-separator">
+      <img src="separator.jpg" class="section-separator">
       <!-- Tokenomics -->
       <section id="tokenomics" aria-labelledby="tokenomics-heading">
+        <img src="tokenomics.jpg" alt="Tokenomics изображение">
         <h2 id="tokenomics-heading">Tokenomics $DF</h2>
         <div class="table-responsive">
           <table>
@@ -287,18 +298,20 @@
           <li>25% — развитие проекта.</li>
         </ul>
       </section>
-      <img src="separator.jpg" alt="Разделитель" class="section-separator">
+      <img src="separator.jpg" class="section-separator">
       <!-- Contract -->
       <section id="contract" aria-labelledby="contract-heading">
+        <img src="contract.jpg" alt="Изображение контракта">
         <h2 id="contract-heading">Адрес контракта</h2>
         <p><code>EQAp8pimeVjBHEQdJTD95sh-XRUDmmLIXui83oR5qMvD8Uy0</code></p>
-        <a href="https://tonviewer.com/EQAp8pimeVjBHEQdJTD95sh-FiXui83oR5qMvD8Uy0?section=transactions" class="btn" target="_blank">Просмотреть в Tonviewer</a>
+        <a href="https://tonviewer.com/EQAp8pimeVjBHEQdJTD95sh-XRUDmmLIXui83oR5qMvD8Uy0?section=transactions" class="btn" target="_blank">Просмотреть в Tonviewer</a>
       </section>
-      <img src="separator.jpg" alt="Разделитель" class="section-separator">
+      <img src="separator.jpg" class="section-separator">
       <!-- Contact -->
       <section id="contact" aria-labelledby="contact-heading">
+        <img src="contact.jpg" alt="Изображение контактов">
         <h2 id="contact-heading">Присоединяйтесь к семье DF</h2>
-        <form action="#" method="POST" aria-describedby="#contact-description">
+        <form action="#" method="POST" aria-describedby="contact-description">
           <p id="contact-description">Заполните форму, и мы свяжемся с вами в ближайшее время.</p>
           <label for="name">Ваше имя</label>
           <input id="name" type="text" name="name" required>
@@ -312,13 +325,12 @@
     </div>
   </main>
   <footer>
-    © 2025 Dmitry's Friends. Все права защищены.
+    &copy; 2025 Dmitry's Friends. Все права защищены.
   </footer>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const toggle = document.querySelector('.menu-toggle');
       const nav = document.getElementById('main-nav');
-
       toggle.addEventListener('click', () => {
         const isOpen = nav.classList.toggle('active');
         toggle.textContent = isOpen ? '×' : '☰';
