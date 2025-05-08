@@ -18,7 +18,7 @@
     }
     body {
       color: #333;
-      background-image: url('background.jpg');
+      background-image: url('4.jpg');
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -28,217 +28,41 @@
       min-height: 100vh;
       text-align: center;
     }
-
     /* Разделитель секций */
-    .section-separator {
-      width: 80%;
-      height: auto;
-      display: block;
-      margin: 2em auto;
-    }
-
+    .section-separator { width: 80%; height: auto; display: block; margin: 2em auto; }
     /* Прозрачные секции, синий текст */
-    section {
-      background: transparent;
-      padding: 1.5em;
-      border-radius: 8px;
-      text-align: center;
-      color: #007bff;
-    }
-    section img {
-      width: 100%;
-      max-width: 600px;
-      height: auto;
-      margin-bottom: 1em;
-      border-radius: 4px;
-    }
-
+    section { background: transparent; padding: 1.5em; border-radius: 8px; text-align: center; color: #007bff; }
+    section img { width: 100%; max-width: 600px; height: auto; margin-bottom: 1em; border-radius: 4px; }
     /* Доступность: пропустить к содержимому */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: #006aff;
-      color: #fff;
-      padding: 8px;
-      z-index: 100;
-      transition: top 0.3s;
-    }
+    .skip-link { position: absolute; top: -40px; left: 0; background: #006aff; color: #fff; padding: 8px; z-index: 100; transition: top 0.3s; }
     .skip-link:focus { top: 0; }
-
     /* Шапка и навигация */
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(10, 0, 125, 0.8);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.5em 1em;
-    }
-    .menu-toggle {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: #ffd700;
-      cursor: pointer;
-      display: none;
-    }
-    nav {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-    }
-    .nav-menu {
-      list-style: none;
-      display: flex;
-      gap: 1em;
-    }
-    .nav-menu a {
-      color: #ffd700;
-      text-decoration: none;
-      padding: 0.8em;
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-    }
-    .nav-menu a:hover,
-    .nav-menu a:focus { text-decoration: underline; }
-
-    main {
-      margin-top: 60px;
-      flex: 1;
-      display: flex;
-      width: 100%;
-    }
-    aside {
-      width: 200px;
-      padding: 1em;
-    }
-    aside img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 1em;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    .container {
-      flex: 1;
-      padding: 1em;
-      display: grid;
-      gap: 2em;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    h1, h2, h3 {
-      margin-bottom: 0.75em;
-      font-weight: bold;
-      background: linear-gradient(90deg, #c0a16b 0%, #ffdf7a 50%, #c0a16b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
+    header { position: fixed; top: 0; width: 100%; background: rgba(10, 0, 125, 0.8); z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0.5em 1em; }
+    .menu-toggle { background: none; border: none; font-size: 1.5rem; color: #ffd700; cursor: pointer; display: none; }
+    nav { max-width: 1000px; margin: 0 auto; display: flex; justify-content: center; }
+    .nav-menu { list-style: none; display: flex; gap: 1em; }
+    .nav-menu a { color: #ffd700; text-decoration: none; padding: 0.8em; min-height: 44px; display: flex; align-items: center; }
+    .nav-menu a:hover, .nav-menu a:focus { text-decoration: underline; }
+    main { margin-top: 60px; flex: 1; display: flex; width: 100%; }
+    aside { width: 200px; padding: 1em; }
+    aside img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 1em; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+    .container { flex: 1; padding: 1em; display: grid; gap: 2em; max-width: 1000px; margin: 0 auto; }
+    h1, h2, h3 { margin-bottom: 0.75em; font-weight: bold; background: linear-gradient(90deg, #c0a16b 0%, #ffdf7a 50%, #c0a16b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     p, ul, form { margin-bottom: 1em; }
     ul { list-style: disc inside; text-align: left; }
-
-    .btn {
-      display: inline-block;
-      background: #006aff;
-      color: #fff;
-      padding: 0.8em 1.2em;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      min-height: 44px;
-      text-align: center;
-      transition: background 0.3s;
-    }
+    .btn { display: inline-block; background: #006aff; color: #fff; padding: 0.8em 1.2em; border: none; border-radius: 6px; text-decoration: none; font-weight: bold; min-height: 44px; text-align: center; transition: background 0.3s; }
     .btn:hover, .btn:focus { background: #004c99; }
-
-    /* Адаптивные изображения и таблицы */
-    img { max-width: 100%; height: auto; }
+    /* Tables */
     .table-responsive { overflow-x: auto; }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 1em;
-      font-size: 1rem;
-    }
-    th, td {
-      border: 1px solid #a0c4ff;
-      padding: 0.75em;
-      text-align: center;
-    }
-    th {
-      background: #0a007d;
-      color: #fff;
-    }
-
-    form label {
-      display: block;
-      margin-bottom: 0.5em;
-      font-weight: bold;
-      color: #333;
-      text-align: left;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 0.75em;
-      margin-bottom: 1em;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-family: inherit;
-      font-size: 1rem;
-    }
-
-    footer {
-      background: rgba(10,0,125,0.8);
-      color: #ffd700;
-      text-align: center;
-      padding: 1em;
-    }
-
-    /* Media Queries */
-    @media (max-width: 768px) {
-      .menu-toggle { display: block; }
-      nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(10, 0, 125, 0.9);
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: all 0.3s ease;
-      }
-      nav.active {
-        max-height: 500px;
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .nav-menu {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 0.5em 0;
-      }
-      .container { padding: 0.5em; }
-      .btn { width: 100%; }
-    }
-
-    @media (max-width: 480px) {
-      html { font-size: 14px; }
-      header { padding: 0.5em 1em; }
-      .container { gap: 1em; }
-      form input, form textarea { font-size: 0.9rem; }
-      table { font-size: 0.9rem; }
-    }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 1em; font-size: 1rem; }
+    th, td { border: 1px solid #a0c4ff; padding: 0.75em; text-align: center; }
+    th { background: #0a007d; color: #fff; }
+    form label { display: block; margin-bottom: 0.5em; font-weight: bold; color: #333; text-align: left; }
+    form input, form textarea { width: 100%; padding: 0.75em; margin-bottom: 1em; border: 1px solid #ccc; border-radius: 4px; font-family: inherit; font-size: 1rem; }
+    footer { background: rgba(10,0,125,0.8); color: #ffd700; text-align: center; padding: 1em; }
+    /* Media */
+    @media (max-width: 768px) { .menu-toggle { display: block; } nav { position: absolute; top: 100%; left: 0; width: 100%; background: rgba(10, 0, 125, 0.9); max-height: 0; overflow: hidden; opacity: 0; transform: translateY(-10px); transition: all 0.3s ease; } nav.active { max-height: 500px; opacity: 1; transform: translateY(0);} .nav-menu { flex-direction: column; align-items: stretch; padding: 0.5em 0;} .container { padding: 0.5em;} .btn { width: 100%; }}
+    @media (max-width: 480px) { html { font-size: 14px; } header { padding: 0.5em 1em; } .container { gap: 1em; } form input, form textarea { font-size: 0.9rem; } table { font-size: 0.9rem; }}
   </style>
 </head>
 <body>
@@ -255,12 +79,6 @@
       </ul>
     </nav>
   </header>
-  <main id="content">
-    <aside>
-      <img src="2.gif" alt="Логотип проекта">
-      <img src="images/side2.jpg" alt="Схема токена">
-    </aside>
-    <div class="container">
       <!-- Hero -->
       <section id="hero" aria-labelledby="hero-heading">
         <img src="hero.jpg" alt="Hero изображение">
@@ -268,7 +86,7 @@
         <p>Токен, рожденный из дружбы и семейного тепла!</p>
         <p>Присоединяйтесь к теплой семье DF и вместе сделаем мир добрее!</p>
       </section>
-      <img src="separator.jpg" alt="Разделитель" class="section-separator">
+      <img src="separator.jpg" class="section-separator">
       <!-- About -->
       <section id="about" aria-labelledby="about-heading">
         <img src="about.jpg" alt="О нас изображение">
@@ -304,23 +122,15 @@
         <img src="contract.jpg" alt="Изображение контракта">
         <h2 id="contract-heading">Адрес контракта</h2>
         <p><code>EQAp8pimeVjBHEQdJTD95sh-XRUDmmLIXui83oR5qMvD8Uy0</code></p>
-        <a href="https://tonviewer.com/EQAp8pimeVjBHEQdJTD95sh-XRUDmmLIXui83oR5qMvD8Uy0?section=transactions" class="btn" target="_blank">Просмотреть в Tonviewer</a>
       </section>
       <img src="separator.jpg" class="section-separator">
       <!-- Contact -->
       <section id="contact" aria-labelledby="contact-heading">
         <img src="contact.jpg" alt="Изображение контактов">
         <h2 id="contact-heading">Присоединяйтесь к семье DF</h2>
-        <form action="#" method="POST" aria-describedby="contact-description">
-          <p id="contact-description">Заполните форму, и мы свяжемся с вами в ближайшее время.</p>
-          <label for="name">Ваше имя</label>
-          <input id="name" type="text" name="name" required>
-          <label for="email">Email</label>
-          <input id="email" type="email" name="email" required>
-          <label for="message">Сообщение</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-          <button type="submit" class="btn">Отправить</button>
-        </form>
+        <a href="https://t.me/YourTelegramChannel" target="_blank" style="display:inline-flex;align-items:center;gap:0.5em;">
+          <img src="2.gif" alt="Telegram icon" style="width:100px;height:100px;">
+        </a>
       </section>
     </div>
   </main>
